@@ -36,14 +36,29 @@ website: String
     cards: [Card!]!
     card(_id: ID!): Card!
 }
+  input CardInput {
+    _id: ID!
+    tagline: String
+    preferredName: String!
+    pronouns: String
+    title: String
+    company: String
+    email: String!
+    phone: String!
+    linkedIn: String
+    Instagram: String
+    website: String
+}
 
   type Mutation {
     login(email: String!, password: String!): Auth!
     addUser(username: String!, email: String!, password: String!): Auth!
-    addCard(_id: ID!): Card!
+    addCard(input: CardInput!): User!
     addContact(_id: ID!): User!
     removeContact(_id: ID!): User!
   }
+
+
 
 `;
 
