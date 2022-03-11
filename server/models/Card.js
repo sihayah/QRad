@@ -11,7 +11,7 @@ const cardSchema = new Schema({
   },
   preferredName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   pronouns: {
@@ -67,4 +67,4 @@ const cardSchema = new Schema({
 
 const Card = model("Card", cardSchema);
 
-module.exports = cardSchema;
+module.exports = Card;

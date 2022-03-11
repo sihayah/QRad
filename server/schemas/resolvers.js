@@ -58,28 +58,43 @@ const resolvers = {
     },
     addCard: async (parent, args, context) => {
       if (context.user) {
-        const card = await Card.create(args);
-        const cardInput = await cardInput.create(args);
-        return { card, cardInput };
+        console.log(args);
+        const card = await Card.create({
+          ...args,
+          username: context.user.username,
+        });
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { cards: card._id } },
+          { new: true, runValidators: false }
+        );
+        return card;
       }
+      throw new AuthenticationError("You need to be logged in!");
     },
-    addContact: async (parent, args, context) => {
+
+    addContact: async (parent, { _id }, context) => {
       if (context.user) {
-        const contact = await User.create(args);
-        const card = await Card.create(args);
-        return { contact, card };
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { contacts: _id } },
+          { new: true }
+        ).populate("contacts");
+        return updatedUser;
       }
+      throw new AuthenticationError("You need to log in");
     },
+
     removeContact: async (parent, { _id }, context) => {
       if (context.user) {
-        contact.deleteOne({ _id: ID }, function (err, result) {
-          if (err) {
-            res.send(err);
-          } else {
-            res.send(result);
-          }
-        });
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { contacts: _id } },
+          { new: true }
+        ).populate("contacts");
+        return updatedUser;
       }
+      throw new AuthenticationError("You need to log in");
     },
   },
 };
