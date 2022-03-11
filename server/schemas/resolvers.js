@@ -5,22 +5,22 @@ const { signToken } = require("../utils/Authorization");
 const resolvers = {
   Query: {
     card: async () => {
-      return Card.find().sort({ asc });
+      return Card.find().sort({ preferredName: 1 });
     },
 
     card: async (parent, { _id }) => {
       return Card.findOne({ _id });
     },
-    user: async () => {
+    users: async () => {
       return User.find()
-        .sort({ asc })
+        .sort({ username: 1 })
         .select("-__v -password")
         .populate("cards")
         .populate("contacts");
     },
 
-    user: async (parent, { _id }) => {
-      return User.findOne({ _id })
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
         .select("-__v -password")
         .populate("cards")
         .populate("contacts");

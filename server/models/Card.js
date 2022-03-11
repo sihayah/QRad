@@ -67,4 +67,4 @@ const cardSchema = new Schema({
 
 const Card = model("Card", cardSchema);
 
-module.exports = Card;
+module.exports = cardSchema;
