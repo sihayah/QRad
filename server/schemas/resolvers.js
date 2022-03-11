@@ -4,7 +4,7 @@ const { signToken } = require("../utils/Authorization");
 
 const resolvers = {
   Query: {
-    card: async () => {
+    cards: async () => {
       return Card.find().sort({ preferredName: 1 });
     },
 
@@ -72,7 +72,24 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    updateCard: async (parent, { _id, cardData }, context) => {
+      if (context.user) {
+        console.log(_id);
+        const updatedCard = await Card.findOneAndUpdate(
+          {"_id": _id},
+          { "$set": cardData},
+          { "new": true}
+        );
 
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $set: { cards: updatedCard._id } },
+          { new: true, runValidators: false }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
     addContact: async (parent, { _id }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
@@ -84,7 +101,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to log in");
     },
-
     removeContact: async (parent, { _id }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
@@ -92,6 +108,19 @@ const resolvers = {
           { $pull: { contacts: _id } },
           { new: true }
         ).populate("contacts");
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to log in");
+    },
+    deleteCard: async (parent, { _id }, context) => {
+      if (context.user) {
+        const card = await Card.findOneAndDelete(_id);
+
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { cards: card._id } },
+          { new: true, runValidators: false }
+        );
         return updatedUser;
       }
       throw new AuthenticationError("You need to log in");
