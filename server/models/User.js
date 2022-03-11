@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-
+const { cardSchema } = require("./Card");
 const userSchema = new Schema(
   {
     username: {
@@ -20,12 +20,7 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    cards: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Cards",
-      },
-    ],
+    cards: [cardSchema],
     contacts: [
       {
         type: Schema.Types.ObjectId,

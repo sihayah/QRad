@@ -1,20 +1,40 @@
-const { Card, User } = require('../models');
+const { Card, User } = require("../models");
+const { AuthenticationError } = require("apollo-server-express");
+const { signToken } = require("../utils/Authorization");
 
 const resolvers = {
   Query: {
     card: async () => {
-      return Card.find().sort({ asc });
+      return Card.find().sort({ preferredName: 1 });
     },
 
     card: async (parent, { _id }) => {
       return Card.findOne({ _id });
     },
-    user: async () => {
-      return User.find().sort({ asc });
+    users: async () => {
+      return User.find()
+        .sort({ username: 1 })
+        .select("-__v -password")
+        .populate("cards")
+        .populate("contacts");
     },
 
-    user: async (parent, { _id }) => {
-      return User.findOne({ _id });
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select("-__v -password")
+        .populate("cards")
+        .populate("contacts");
+    },
+
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id })
+          .select("-__v -password")
+          .populate("cards")
+          .populate("contacts");
+        return userData;
+      }
+      throw new AuthenticationError("Not logged in");
     },
   },
 
@@ -22,11 +42,11 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
       const correctPw = await user.isCorrectPassword(password);
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
       const token = signToken(user);
       return { token, user };
@@ -38,30 +58,45 @@ const resolvers = {
     },
     addCard: async (parent, args, context) => {
       if (context.user) {
-        const card = await Card.create(args);
-        const cardInput = await cardInput.create(args);
-        return { card , cardInput };
-      } 
-    },
-    addContact: async (parent, args, context) => {
-      if (context.user) {
-        const contact = await User.create(args);
-      const card = await Card.create(args);
-      return { contact , card };
+        console.log(args);
+        const card = await Card.create({
+          ...args,
+          username: context.user.username,
+        });
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { cards: card._id } },
+          { new: true, runValidators: false }
+        );
+        return card;
       }
+      throw new AuthenticationError("You need to be logged in!");
     },
+
+    addContact: async (parent, { _id }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { contacts: _id } },
+          { new: true }
+        ).populate("contacts");
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to log in");
+    },
+
     removeContact: async (parent, { _id }, context) => {
       if (context.user) {
-        contact.deleteOne({ _id: ID }, function(err, result) {
-          if (err) {
-          res.send(err);
-          } else {
-          res.send(result);
-          }
-        });
-        }
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { contacts: _id } },
+          { new: true }
+        ).populate("contacts");
+        return updatedUser;
       }
-    }
-  };
+      throw new AuthenticationError("You need to log in");
+    },
+  },
+};
 
 module.exports = resolvers;

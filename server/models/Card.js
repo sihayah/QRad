@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
 const cardSchema = new Schema({
-  Tagline: {
+  tagline: {
     type: String,
     required: false,
     minlength: 1,
@@ -11,7 +11,7 @@ const cardSchema = new Schema({
   },
   preferredName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   pronouns: {
