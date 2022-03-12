@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-const { cardSchema } = require("./Card");
+const Card = require("./Card");
+
 const userSchema = new Schema(
   {
     username: {
@@ -20,7 +21,12 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    cards: [cardSchema],
+    cards: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Card'
+      }
+    ],
     contacts: [
       {
         type: Schema.Types.ObjectId,
@@ -50,7 +56,7 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-userSchema.virtual("contactCount").get(function () {
+userSchema.virtual('contactCount').get(function () {
   return this.contacts.length;
 });
 
