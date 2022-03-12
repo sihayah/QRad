@@ -43,9 +43,9 @@ const cardSchema = new Schema({
       "Must include an internal dial code and phone number",
     ],
   },
-  linkedIn: { type: String, required: false, unique: true, trim: true },
-  Instagram: { type: String, required: false, unique: true, trim: true },
-  website: { type: String, required: false, unique: true, trim: true },
+  linkedIn: { type: String, required: false, unique: false, trim: true },
+  instagram: { type: String, required: false, unique: false, trim: true },
+  website: { type: String, required: false, unique: false, trim: true },
 
   // comments: [
   //   {

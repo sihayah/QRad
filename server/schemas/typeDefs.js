@@ -19,7 +19,7 @@ const typeDefs = gql`
     email: String!
     phone: String
     linkedIn: String
-    Instagram: String
+    instagram: String
     website: String
   }
 
@@ -39,7 +39,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth!
     addUser(username: String!, email: String!, password: String!): Auth!
-    addCard(email: String!): Card
+    addCard(tagline: String, preferredName: String, pronouns: String, title: String, company: String, email: String!, phone: String, linkedIn: String, instagram: String, website: String): Card
     addContact(_id: ID!): User!
     removeContact(_id: ID!): User!
   }

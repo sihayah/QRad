@@ -58,7 +58,7 @@ const resolvers = {
     },
     addCard: async (parent, args, context) => {
       if (context.user) {
-        console.log(args);
+        console.log("Inside add card resolver", args);
         const card = await Card.create({
           ...args,
           username: context.user.username,
