@@ -1,14 +1,18 @@
-import React from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React from "react";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Home from './pages/Home';
-import SingleThought from './pages/SingleThought';
-import Header from './components/Header';
-import Footer from './components/Footer';
+// import Home from './pages/Home';
+// import Qrcode from './components/Qrcode;
+// import Profile from './components/Profile';
+// import Contacts from './components/Contacts';
+// import Cards from './components/Cards;
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Navigator from "./components/Navigator";
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  uri: "/graphql",
   cache: new InMemoryCache(),
 });
 
@@ -22,9 +26,9 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
-            <Route exact path="/thoughts/:thoughtId">
-              <SingleThought />
+
+            <Route exact path="//:thoughtId">
+              <Contacts />
             </Route>
           </div>
           <Footer />
