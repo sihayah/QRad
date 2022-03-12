@@ -38,7 +38,6 @@ const cardSchema = new Schema({
   phone: {
     type: String,
     required: false,
-    unique: true,
     match: [
       /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im,
       "Must include an internal dial code and phone number",

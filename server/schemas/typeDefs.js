@@ -10,7 +10,7 @@ const typeDefs = gql`
     contacts: [User!]!
   }
   type Card {
-    _id: ID!
+    _id: ID
     tagline: String
     preferredName: String
     pronouns: String
@@ -39,7 +39,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth!
     addUser(username: String!, email: String!, password: String!): Auth!
-    addCard(_id: ID!): User
+    addCard(email: String!): Card
     addContact(_id: ID!): User!
     removeContact(_id: ID!): User!
   }
