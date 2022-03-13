@@ -1,4 +1,4 @@
-.APp {
+.search {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@
     font-family: Arial, Helvetica, sans-serif ;
 }
 
-.APP input {
+.search input {
     margin-top: 20px;
     width: 300px;
     height: 40px;
