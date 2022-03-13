@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import SingleThought from './pages/SingleThought';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Search from './pages/Search';
 
 const client = new ApolloClient({
   uri: '/graphql',
