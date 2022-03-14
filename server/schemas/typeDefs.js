@@ -12,7 +12,8 @@ const typeDefs = gql`
   type Card {
     _id: ID
     tagline: String
-    preferredName: String
+    firstName: String
+    lastName: String
     pronouns: String
     title: String
     company: String
@@ -39,8 +40,8 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth!
     addUser(username: String!, email: String!, password: String!): Auth!
-    addCard(tagline: String, preferredName: String, pronouns: String, title: String, company: String, email: String!, phone: String, linkedIn: String, instagram: String, website: String): Card
-    updateCard(_id: ID!, tagline: String, preferredName: String, pronouns: String, title: String, company: String, email: String, phone: String, linkedIn: String, instagram: String, website: String): Card
+    addCard(tagline: String, firstName: String, lastName: String, pronouns: String, title: String, company: String, email: String!, phone: String, linkedIn: String, instagram: String, website: String): Card!
+    updateCard(_id: ID!, tagline: String, firstName: String, lastName: String, pronouns: String, title: String, company: String, email: String, phone: String, linkedIn: String, instagram: String, website: String): Card!
     addContact(_id: ID!): User!
     removeContact(_id: ID!): User!
   }
