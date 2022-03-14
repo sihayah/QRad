@@ -14,12 +14,16 @@ export default function Dash() {
     pronouns: "",
     title: "",
     tagline: "",
-    email: ""
-   
+    email: "",
+    phone: "",
+    website: "",
+    LinkedIn: "",
+    Twitter: "",
+    Instagram: ""
     })
 
   const handlechange = e => {
-      const {firstname, lastname, pronouns, title, tagline, email, value} = e.target
+      const {firstname, lastname, pronouns, title, tagline, email, phone, website, LinkedIn, Twitter, Instagram, value} = e.target
       setFormState(
       {
           ...formState, 
@@ -33,7 +37,17 @@ export default function Dash() {
         ...formState, 
         [tagline]: value,
         ...formState, 
-        [email]: value
+        [email]: value,
+        ...formState, 
+        [phone]: value,
+        ...formState, 
+        [website]: value,
+        ...formState, 
+        [LinkedIn]: value,
+        ...formState, 
+        [Twitter]: value,
+        ...formState, 
+        [Instagram]: value
 
       }    
       )
@@ -70,10 +84,26 @@ export default function Dash() {
             onChange={handlechange}
             name={"email"}
         />
-
-
-        
-       
+         <input 
+            onChange={handlechange}
+            name={"phone"}
+        />
+         <input 
+            onChange={handlechange}
+            name={"website"}
+        />
+        <input 
+            onChange={handlechange}
+            name={"LinkedIn"}
+        />
+        <input 
+            onChange={handlechange}
+            name={"Twitter"}
+        />
+        <input 
+            onChange={handlechange}
+            name={"Instagram"}
+        />
             </form>
           <p i-left-wrapper className="biz-temp">
        {/* Name:(first and last) */}
