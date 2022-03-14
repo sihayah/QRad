@@ -40,6 +40,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth!
     addUser(username: String!, email: String!, password: String!): Auth!
     addCard(tagline: String, preferredName: String, pronouns: String, title: String, company: String, email: String!, phone: String, linkedIn: String, instagram: String, website: String): Card
+    updateCard(_id: ID!, tagline: String, preferredName: String, pronouns: String, title: String, company: String, email: String, phone: String, linkedIn: String, instagram: String, website: String): Card
     addContact(_id: ID!): User!
     removeContact(_id: ID!): User!
   }

@@ -60,3 +60,20 @@ export const ADD_CARD = gql`
     }
   }
 `;
+
+export const UPDATE_CARD = gql`
+mutation updateCard($_id: ID!, $tagline: String, $preferredName: String, $pronouns: String, $title: String, $company: String, $email: String, $phone: String, $linkedIn: String, $instagram: String, $website: String){
+  updateCard (_id: $_id, tagline: $tagline, preferredName: $preferredName, pronouns: $pronouns, title: $title, company: $company, email: $email, phone: $phone, linkedIn: $linkedIn, instagram: $instagram, website: $website){            
+    tagline
+    preferredName
+    pronouns
+    title
+    company
+    email
+    phone
+    linkedIn
+    instagram
+    website  
+  }   
+}
+`

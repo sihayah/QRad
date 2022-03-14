@@ -39,6 +39,7 @@ const resolvers = {
   },
 
   Mutation: {
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
@@ -51,11 +52,13 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
       return { token, user };
     },
+
     addCard: async (parent, args, context) => {
       if (context.user) {
         console.log("Inside add card resolver", args);
@@ -69,6 +72,20 @@ const resolvers = {
           { new: true, runValidators: false }
         );
         return card;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+  // _id, tagline, preferredName, pronouns, title, company, email, phone, linkedIn, instagram, website
+
+    updateCard: async (parent, {_id, tagline, preferredName, pronouns, title, company, email, phone, linkedIn, instagram, website}, context) => {
+      if (context.user) {
+        const updatedCard = await Card.findOneAndUpdate(
+          { _id: _id },
+          { tagline, preferredName, pronouns, title, company, email, phone, linkedIn, instagram, website }
+        );
+        console.log("Updated card: ", updatedCard)
+        return updatedCard;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
