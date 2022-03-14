@@ -1,6 +1,14 @@
-import "./App.css";
+
+import "./search.css";
 import json from "./MOCK_DATA.json";
 import React, {useState} from 'react'
+import {HiOutlineMailOpen } from 'react-icons/hi';
+import {BsFillTelephoneForwardFill} from 'react-icons/bs';
+import {IoIosBusiness} from 'react-icons/io';
+import {CgWebsite} from 'react-icons/cg';
+import {BsLinkedin} from 'react-icons/bs';
+import {FaTwitterSquare} from 'react-icons/fa';
+import {AiFillInstagram} from 'react-icons/ai';
 
 function Search() {
   
@@ -9,7 +17,7 @@ function Search() {
     
    
     return (
-      <div className="App">
+      <div className="Search">
         <center>
         <input type="text" 
         placeholder="Search Contacts..." 
@@ -42,7 +50,16 @@ function Search() {
             <div className="user" key={key}> 
             <p>{val.first_name} , {val.last_name}</p>
                 {              
-                show?<p>{val.email} <p>{val.phone}</p> <p>{val.company_name}</p> <p>{val.website}</p> <p>{val.linkedin}</p> <p>{val.twitter}</p> <p>{val.instagram}</p></p>:null
+                show?<p><BsFillTelephoneForwardFill/> {val.phone} <p> <IoIosBusiness/> {val.company_name}</p> 
+                <a href="mailto:"><HiOutlineMailOpen/> {val.email}</a>
+                <br/>
+                <a href={val.website} target='_blank'><CgWebsite/> Website</a> 
+                <br/>
+                <a href={val.linkedin} target='_blank'><BsLinkedin/> Linkedin</a>
+                <br/>
+                <a href={val.twitter}><FaTwitterSquare/> Twitter</a> 
+                <br/>
+                <a href={val.instagram} target='_blank'><AiFillInstagram/> Instagram</a></p>:null
                 }
 
              <button onClick={() =>setShow(!show)}>Show Contact Info</button>
