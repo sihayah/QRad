@@ -9,16 +9,19 @@ export default function Dash() {
 //     })
 //    }
    const [formState, setFormState] = useState({
-    name: "",
+    firstname: "",
+    lastname: "",
     email: ""    
     })
 
   const handlechange = e => {
-      const {name, value} = e.target
+      const {firstname, lastname, value} = e.target
       setFormState(
       {
           ...formState, 
-        [name]: value
+        [firstname]: value,
+        ...formState, 
+        [lastname]: value
       }    
       )
       console.log(formState)
@@ -32,7 +35,7 @@ export default function Dash() {
             <form>
         <input 
             onChange={handlechange}
-            name={"name"}
+            name={"firstname"}
         
         />
          <input 
