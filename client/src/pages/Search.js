@@ -33,15 +33,17 @@ function Search() {
                 return val
             } else if (val.last_name.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return val
-            } else if (val.phone.toLowerCase().includes(searchTerm.toLowerCase())) {
+            } else if (val.company_name.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return val
-            }else if (val.website.toLowerCase().includes(searchTerm.toLowerCase())) {
+            }  else if (val.phone.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return val
-            }else if (val.linkedin.toLowerCase().includes(searchTerm.toLowerCase())) {
+            } else if (val.website.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return val
-            }else if (val.twitter.toLowerCase().includes(searchTerm.toLowerCase())) {
+            } else if (val.linkedin.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return val
-            }else if (val.instagram.toLowerCase().includes(searchTerm.toLowerCase())) {
+            } else if (val.twitter.toLowerCase().includes(searchTerm.toLowerCase())) {
+                return val
+            } else if (val.instagram.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return val
             }
         }).map((val, key)=> {
