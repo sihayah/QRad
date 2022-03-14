@@ -9,7 +9,12 @@ const cardSchema = new Schema({
     maxlength: 140,
     trim: true,
   },
-  preferredName: {
+  firstName: {
+    type: String,
+    required: false,
+    trim: true,
+  },
+  lastName: {
     type: String,
     required: false,
     trim: true,

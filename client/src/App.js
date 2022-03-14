@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Qrcode from './components/Qrcode;
 // import Profile from './components/Profile';
 // import Contacts from './components/Contacts';
-// import Cards from './components/Cards;
+// import Card from './components/Card;
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Navigator from "./components/Navigator";
