@@ -36,13 +36,28 @@ export default function Dash() {
         <input 
             onChange={handlechange}
             name={"firstname"}
-        
         />
          <input 
             onChange={handlechange}
-            name={"email"}
-        
+            name={"lastname"}
         />
+         <input 
+            onChange={handlechange}
+            name={"pronouns"}
+        />
+        <input 
+            onChange={handlechange}
+            name={"title"}
+        />
+        <input 
+            onChange={handlechange}
+            name={"tagline"}
+        />
+        <input 
+            onChange={handlechange}
+            name={"email"}
+        />
+
 
         
        
