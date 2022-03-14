@@ -5,7 +5,7 @@ const { signToken } = require("../utils/Authorization");
 const resolvers = {
   Query: {
     card: async () => {
-      return Card.find().sort({ preferredName: 1 });
+      return Card.find().sort({ lastName: 1 });
     },
 
     card: async (parent, { _id }) => {
@@ -76,13 +76,11 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-  // _id, tagline, preferredName, pronouns, title, company, email, phone, linkedIn, instagram, website
-
-    updateCard: async (parent, {_id, tagline, preferredName, pronouns, title, company, email, phone, linkedIn, instagram, website}, context) => {
+    updateCard: async (parent, {_id, tagline, lastName, firstName, pronouns, title, company, email, phone, linkedIn, instagram, website}, context) => {
       if (context.user) {
         const updatedCard = await Card.findOneAndUpdate(
           { _id: _id },
-          { tagline, preferredName, pronouns, title, company, email, phone, linkedIn, instagram, website }
+          { tagline, lastName, firstName, pronouns, title, company, email, phone, linkedIn, instagram, website }
         );
         console.log("Updated card: ", updatedCard)
         return updatedCard;
