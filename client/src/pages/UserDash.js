@@ -11,17 +11,30 @@ export default function Dash() {
    const [formState, setFormState] = useState({
     firstname: "",
     lastname: "",
-    email: ""    
+    pronouns: "",
+    title: "",
+    tagline: "",
+    email: ""
+   
     })
 
   const handlechange = e => {
-      const {firstname, lastname, value} = e.target
+      const {firstname, lastname, pronouns, title, tagline, email, value} = e.target
       setFormState(
       {
           ...formState, 
         [firstname]: value,
         ...formState, 
-        [lastname]: value
+        [lastname]: value,
+        ...formState, 
+        [pronouns]: value,
+        ...formState, 
+        [title]: value,
+        ...formState, 
+        [tagline]: value,
+        ...formState, 
+        [email]: value
+
       }    
       )
       console.log(formState)
