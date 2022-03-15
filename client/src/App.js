@@ -31,7 +31,7 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/Profile">
+            <Route exact path="/profile">
               <Profile />
             </Route>
             {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
