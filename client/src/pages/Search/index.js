@@ -3,6 +3,7 @@ import "./style.css";
 import json from "./data/MOCK_DATA.json";
 import React, {useState} from 'react'
 import Card from '../../components/Card';
+import ContactList from '../../components/Contacts';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_CONTACT } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
@@ -80,6 +81,9 @@ function Search() {
             </div>
             );
         })}
+        {user.contacts && 
+          <ContactList /> 
+          }
         </center>
     </div>
     );

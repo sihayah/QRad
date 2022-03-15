@@ -5,6 +5,8 @@ import {BsFillTelephoneForwardFill} from 'react-icons/bs';
 import {IoIosBusiness} from 'react-icons/io';
 import {CgWebsite} from 'react-icons/cg';
 import {AiFillInstagram} from 'react-icons/ai';
+import {AiOutlineLinkedin} from 'react-icons/ai';
+import {MdOutlineBusinessCenter} from 'react-icons/md';
 
 const Card = ({ data }) => {
 
@@ -38,6 +40,7 @@ const Card = ({ data }) => {
                 )}
                 {data.title && (
                     <li>
+                        <MdOutlineBusinessCenter />
                         {data.title}
                     </li>
                 )}
@@ -58,7 +61,7 @@ const Card = ({ data }) => {
                 )}
                 {data.linkedIn && (
                     <li>
-                        <CgWebsite /> 
+                        <AiOutlineLinkedin /> 
                         {data.linkedIn}
                     </li>
                 )}
