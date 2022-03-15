@@ -21,12 +21,14 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
+
     cards: [
       {
         type: Schema.Types.ObjectId,
         ref: 'Card'
       }
     ],
+
     contacts: [
       {
         type: Schema.Types.ObjectId,
