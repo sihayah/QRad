@@ -45,7 +45,8 @@ const Card = ({ data }) => {
                     </li>
                 )}
                 <li>
-                    <HiOutlineMailOpen /> {data.email}
+                    <HiOutlineMailOpen /> 
+                    <a href={`mailto:${data.email}`}>{data.email}</a>
                 </li>
                 {data.phone && (
                     <li>
@@ -56,19 +57,19 @@ const Card = ({ data }) => {
                 {data.website && (
                     <li>
                         <CgWebsite />
-                        <a href={data.website}> {data.website}</a>
+                        <a href={data.website}> website</a>
                     </li>
                 )}
                 {data.linkedIn && (
                     <li>
                         <AiOutlineLinkedin /> 
-                        {data.linkedIn}
+                        <a href={data.linkedIn}> linkedIn</a>
                     </li>
                 )}
                 {data.instagram && (
                     <li>
                         <AiFillInstagram />  
-                        {data.instagram}
+                        <a href={data.instagram}> Instagram</a>
                     </li>
                 )}
             </ul>            
