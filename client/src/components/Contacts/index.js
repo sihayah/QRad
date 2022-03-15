@@ -1,10 +1,7 @@
 import React from 'react'
 import Card from '../Card';
-import { useQuery } from '@apollo/client';
-import { QUERY_ME } from "../../utils/queries";
-import Auth from '../../utils/auth';
 
-const Contacts = ({ username, contacts }) => {
+const ContactList = ({ username, contacts }) => {
 
     if (!contacts || !contacts.length) {
         return <p className="bg-dark text-light p-3">{username}, make some contacts!</p>;
@@ -20,4 +17,4 @@ const Contacts = ({ username, contacts }) => {
     )
 }
 
-export default Contacts;
+export default ContactList;
