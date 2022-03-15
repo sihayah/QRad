@@ -136,7 +136,7 @@ export default function Dash() {
       </div>
       <div className="mb-3">{!userParam && <ThoughtForm />}</div> */}
             <p i-right-wrapper className="biz-card">
-            *missing photo*
+            *business card*
             </p>
             <form>
         <input 
@@ -181,6 +181,12 @@ export default function Dash() {
             name="phone"
             value={formState.phone}
         />
+        <input 
+            placeholder="company"
+            onChange={handlechange}
+            name="company"
+            value={formState.company}
+        />
          <input 
             placeholder="website"
             onChange={handlechange}
@@ -221,7 +227,14 @@ export default function Dash() {
        Instagram: */}
         {/* </p> */}
         {/* <button onClick={addForm} className="edit-card">Edit Card</button> */}
-        <button type="submit">Save Edit</button>
+        <button
+              onClick={() => {
+                this.setState({ editing: true });
+              }}
+            >
+              Save Edit
+            </button>
+        {/* <button type="submit">Save Edit</button> */}
      </div>
     );
 }
