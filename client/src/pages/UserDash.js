@@ -3,10 +3,6 @@ import { ADD_CARD } from "../utils/mutations";
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 
-
-
-
-
 //export and calling function
 export default function Profile() {
 
