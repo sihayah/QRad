@@ -13,16 +13,17 @@ const typeDefs = gql`
   }
 
   type Card {
-    _id: ID!
+    _id: ID
     tagline: String
-    preferredName: String
+    firstName: String
+    lastName: String
     pronouns: String
     title: String
     company: String
     email: String!
     phone: String
     linkedIn: String
-    Instagram: String
+    instagram: String
     website: String
   }
 
@@ -56,11 +57,11 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth!
     addUser(username: String!, email: String!, password: String!): Auth!
-    addCard(_id: ID!): User
-    updateCard(_id: ID!, cardData: CardInput!): User!
-    deleteCard(_id: ID!): User!
+    addCard(tagline: String, firstName: String, lastName: String, pronouns: String, title: String, company: String, email: String!, phone: String, linkedIn: String, instagram: String, website: String): Card!
+    updateCard(_id: ID!, tagline: String, firstName: String, lastName: String, pronouns: String, title: String, company: String, email: String, phone: String, linkedIn: String, instagram: String, website: String): Card!
     addContact(_id: ID!): User!
     removeContact(_id: ID!): User!
+    deleteCard(_id: ID!): Card!
   }
 `;
 
