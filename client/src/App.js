@@ -2,17 +2,16 @@ import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Home from './pages/Home';
-import Header from './components/Header';
+import Home from "./pages/Home";
+import Header from "./components/Header";
 
-import Search from './pages/Search';
+// import Search from './pages/Search';
 // import Qrcode from './components/Qrcode;
 // import Profile from './components/Profile';
 // import Contacts from './components/Contacts';
 // import Card from './components/Card;
-// // import Login from "./components/Login";
-// import Signup from "./components/Signup";
-
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -23,26 +22,27 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-
         {/* <div className="flex-column justify-flex-start min-100-vh"> */}
-          <Header />
-          <div className="container">
+        <Header />
+        <div className="container">
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-            <Route exact path="/">
-              <Home />
-            </Route>
+          <Route exact path="/sign-up">
+            <Signup />
+          </Route>
 
-            <Route exact path="/sign-up">
-              {/* <Signup /> */}
-            </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
 
-            {/* <Route exact path="//:thoughtId">
+          {/* <Route exact path="//:thoughtId">
               <Contacts /> */}
-            {/* </Route> */}
-          </div>
-          {/* <Footer /> */}
+          {/* </Route> */}
+        </div>
+        {/* <Footer /> */}
         {/* </div> */}
-
       </Router>
     </ApolloProvider>
   );
