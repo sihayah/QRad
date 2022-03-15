@@ -4,6 +4,7 @@ import Navigator from '../Navigator';
 import Profile from '../Profile';
 import Contacts from '../Contacts';
 import Home from '../../pages/Home';
+import './header.css';
 
 const Header = () => {
   return (
