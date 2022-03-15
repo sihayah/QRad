@@ -1,59 +1,50 @@
 import React, { useState } from "react";
+//all imports for user profile
+// import { Redirect, useParams } from 'react-router-dom';
+// import ThoughtForm from '../components/ThoughtForm';
+// import ThoughtList from '../components/ThoughtList';
+// import FriendList from '../components/FriendList';
+// import { useQuery, useMutation } from '@apollo/client';
+// import { QUERY_USER, QUERY_ME } from '../utils/queries';
+// import { ADD_FRIEND } from '../utils/mutations';
+// import Auth from '../utils/auth';
 
-// all imports for user profile
-import { Redirect, useParams } from 'react-router-dom';
-import ThoughtForm from '../components/ThoughtForm';
-import ThoughtList from '../components/ThoughtList';
-import FriendList from '../components/FriendList';
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_FRIEND } from '../utils/mutations';
-import Auth from '../utils/auth';
+//for profile  purposes so that username links with userParams
+// const Profile = (props) => {
+//     const { username: userParam } = useParams();
+  
+//     const [addFriend] = useMutation(ADD_FRIEND);
+//     const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+//       variables: { username: userParam },
+//     });
+  
+//     const user = data?.me || data?.user || {};
+  
+//     // redirect to personal profile page if username is yours
+//     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+//       return <Redirect to="/profile" />;
+//     }
+  
+//     if (loading) {
+//       return <div>Loading...</div>;
+//     }
+  
+//     if (!user?.username) {
+//       return (
+//         <h4>
+//           You need to be logged in to see this. Use the navigation links above to
+//           sign up or log in!
+//         </h4>
+//       );
+//     }
 
-// for profile  purposes so that username links with userParams
-const Profile = (props) => {
-    const { username: userParam } = useParams();
-  
-    const [addFriend] = useMutation(ADD_FRIEND);
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-      variables: { username: userParam },
-    });
-  
-    const user = data?.me || data?.user || {};
-  
-    // redirect to personal profile page if username is yours
-    if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-      return <Redirect to="/profile" />;
-    }
-  
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-  
-    if (!user?.username) {
-      return (
-        <h4>
-          You need to be logged in to see this. Use the navigation links above to
-          sign up or log in!
-        </h4>
-      );
-    }
 
-const handleClick = async () => {
-    try {
-      await addFriend({
-        variables: { id: user._id },
-      });
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
 
 
 
 //export and calling function
-// export default function Dash() {
+export default function Dash() {
 //    const editCard = document.querySelector(".edit-card")
 //    function addForm () {
 //     editCard.addEventListener("click", addForm  => {
@@ -76,40 +67,48 @@ const handleClick = async () => {
     })
 //form state targets events value
   const handlechange = e => {
-      const {firstname, lastname, pronouns, title, tagline, email, phone, website, LinkedIn, Twitter, Instagram, value} = e.target
-      setFormState(
-      {
-          ...formState, 
-        [firstname]: value,
-        ...formState, 
-        [lastname]: value,
-        ...formState, 
-        [pronouns]: value,
-        ...formState, 
-        [title]: value,
-        ...formState, 
-        [tagline]: value,
-        ...formState, 
-        [email]: value,
-        ...formState, 
-        [phone]: value,
-        ...formState, 
-        [website]: value,
-        ...formState, 
-        [LinkedIn]: value,
-        ...formState, 
-        [Twitter]: value,
-        ...formState, 
-        [Instagram]: value
+    //   const {firstname, lastname, pronouns, title, tagline, email, phone, website, LinkedIn, Twitter, Instagram, value} = e.target
+    //   setFormState(
+    //   {
+    //       ...formState, 
+    //     [firstname]: value,
+    //     ...formState, 
+    //     [lastname]: value,
+    //     ...formState, 
+    //     [pronouns]: value,
+    //     ...formState, 
+    //     [title]: value,
+    //     ...formState, 
+    //     [tagline]: value,
+    //     ...formState, 
+    //     [email]: value,
+    //     ...formState, 
+    //     [phone]: value,
+    //     ...formState, 
+    //     [website]: value,
+    //     ...formState, 
+    //     [LinkedIn]: value,
+    //     ...formState, 
+    //     [Twitter]: value,
+    //     ...formState, 
+    //     [Instagram]: value
 
-      }    
-      )
-      console.log(formState)
-    }
+    //   }    
+    //   )
+    //   console.log(formState)
+    const { name, value } = e.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  }
+    console.log(formState)
+
+
     return(
         //adding css into the js file instead of using a css file
         <div id="biz-profile">
-            <div className="flex-row mb-3">
+            {/* <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
@@ -135,54 +134,76 @@ const handleClick = async () => {
           />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <ThoughtForm />}</div>
-            {/* <p i-right-wrapper className="biz-card">
+      <div className="mb-3">{!userParam && <ThoughtForm />}</div> */}
+            <p i-right-wrapper className="biz-card">
             *missing photo*
-            </p> */}
+            </p>
             <form>
         <input 
+            placeholder="firstname"
             onChange={handlechange}
-            value={"firstname"}
+            name="firstname"
+            value={formState.firstname}
         />
          <input 
+            placeholder="lastname"
             onChange={handlechange}
-            name={"lastname"}
+            name="lastname"
+            value={formState.lastname}
         />
          <input 
+            placeholder="pronouns"
             onChange={handlechange}
-            name={"pronouns"}
+            name="pronouns"
+            value={formState.pronouns}
         />
         <input 
+            placeholder="title"
             onChange={handlechange}
-            name={"title"}
+            name="title"
+            value={formState.title}
         />
         <input 
+            placeholder="tagline"
             onChange={handlechange}
-            name={"tagline"}
+            name="tagline"
+            value={formState.tagline}
         />
         <input 
+            placeholder="email"
             onChange={handlechange}
-            name={"email"}
+            name="email"
+            value={formState.email}
         />
          <input 
+            placeholder="phone"
             onChange={handlechange}
-            name={"phone"}
+            name="phone"
+            value={formState.phone}
         />
          <input 
+            placeholder="website"
             onChange={handlechange}
-            name={"website"}
+            name="website"
+            value={formState.website}
         />
         <input 
+            placeholder="LinkedIn"
             onChange={handlechange}
-            name={"LinkedIn"}
+            name="LinkedIn"
+            value={formState.LinkedIn}
         />
         <input 
+            placeholder="Twitter"
             onChange={handlechange}
-            name={"Twitter"}
+            name="Twitter"
+            value={formState.Twitter}
         />
         <input 
+            placeholder="Instagram"
             onChange={handlechange}
-            name={"Instagram"}
+            name="Instagram"
+            value={formState.Instagram}
         />
             </form>
           {/* <p i-left-wrapper className="biz-temp">
@@ -202,6 +223,5 @@ const handleClick = async () => {
         {/* <button onClick={addForm} className="edit-card">Edit Card</button> */}
         <button type="submit">Save Edit</button>
      </div>
-        );
-    };
-    export default Profile;
+    );
+}

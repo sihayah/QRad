@@ -5,10 +5,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Header from './components/Header';
 
-import Search from './pages/Search';
+// import Search from './pages/Search';
 import Profile from "./pages/UserDash";
 // import Qrcode from './components/Qrcode;
-import Profile from './components/UserDash';
 // import Contacts from './components/Contacts';
 // import Card from './components/Card;
 // // import Login from "./components/Login";
@@ -37,7 +36,8 @@ function App() {
             </Route>
             {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
             <Route exact path="/thoughts/:thoughtId">
-              <SingleThought />
+              {/* <SingleThought /> */}
+              </Route>
 
             <Route exact path="/sign-up">
               {/* <Signup /> */}
