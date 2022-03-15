@@ -1,6 +1,6 @@
 
 import "./search.css";
-import json from "./MOCK_DATA.json";
+import json from "../data/MOCK_DATA.json";
 import React, {useState} from 'react'
 import {HiOutlineMailOpen } from 'react-icons/hi';
 import {BsFillTelephoneForwardFill} from 'react-icons/bs';
