@@ -75,15 +75,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateCard: async (parent, { _id, cardData }, context) => {
-      if (context.user) {
-        console.log(_id);
-        const updatedCard = await Card.findOneAndUpdate(
-          {"_id": _id},
-          { "$set": cardData},
-          { "new": true}
-        );
-
     updateCard: async (parent, {_id, tagline, lastName, firstName, pronouns, title, company, email, phone, linkedIn, instagram, website}, context) => {
       if (context.user) {
         const updatedCard = await Card.findOneAndUpdate(
@@ -114,19 +105,6 @@ const resolvers = {
           { $pull: { contacts: _id } },
           { new: true }
         ).populate("contacts");
-        return updatedUser;
-      }
-      throw new AuthenticationError("You need to log in");
-    },
-    deleteCard: async (parent, { _id }, context) => {
-      if (context.user) {
-        const card = await Card.findOneAndDelete(_id);
-
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { cards: card._id } },
-          { new: true, runValidators: false }
-        );
         return updatedUser;
       }
       throw new AuthenticationError("You need to log in");
