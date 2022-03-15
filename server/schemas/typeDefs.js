@@ -61,6 +61,7 @@ const typeDefs = gql`
     updateCard(_id: ID!, tagline: String, firstName: String, lastName: String, pronouns: String, title: String, company: String, email: String, phone: String, linkedIn: String, instagram: String, website: String): Card!
     addContact(_id: ID!): User!
     removeContact(_id: ID!): User!
+    deleteCard(_id: ID!): Card!
   }
 `;
 
