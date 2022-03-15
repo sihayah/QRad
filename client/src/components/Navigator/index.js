@@ -1,20 +1,29 @@
 import React from "react";
 import { Navbar, NavbarBrand, Nav, Container } from "react-bootstrap";
+import { LinkContainer } from 'react-router-bootstrap'
 
 function Navigator() {
   return (
-    <header>
+    <div>
       <Navbar bg="light">
         <Container>
-          <NavbarBrand href="/">QRad</NavbarBrand>
+          <LinkContainer to="/">
+            <NavbarBrand>QRad</NavbarBrand>
+          </LinkContainer>
           <Nav className="me-auto">
-            <Nav.Link href="#my-profile">My Profile</Nav.Link>
-            <Nav.Link href="#my-contacts">My Contacts</Nav.Link>
-            <Nav.Link href="#my-qr">My QR Code</Nav.Link>
+            <LinkContainer to='/profile'>
+              <Nav.Link>profile</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/contacts">
+              <Nav.Link>my Contacts</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/profile">
+              <Nav.Link>my QRad</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Container>
       </Navbar>
-    </header>
+    </div>
   );
 }
 export default Navigator;
