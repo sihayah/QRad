@@ -2,19 +2,33 @@
 import "./style.css";
 import json from "./data/MOCK_DATA.json";
 import React, {useState} from 'react'
-import {HiOutlineMailOpen } from 'react-icons/hi';
-import {BsFillTelephoneForwardFill} from 'react-icons/bs';
-import {IoIosBusiness} from 'react-icons/io';
-import {CgWebsite} from 'react-icons/cg';
-import {BsLinkedin} from 'react-icons/bs';
-import {FaTwitterSquare} from 'react-icons/fa';
-import {AiFillInstagram} from 'react-icons/ai';
+import Card from '../../components/Card';
+import { useMutation, useQuery } from '@apollo/client';
+import { ADD_CONTACT } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
+import Auth from '../../utils/auth';
 
 function Search() {
   
     const [searchTerm, setSearchTerm] = useState('')
-    const [show, setShow] = useState(false)
-    
+    // const [show, setShow] = useState(false)
+    const addContact = useMutation(ADD_CONTACT);
+    const { data } = useQuery(QUERY_ME);
+    let user = {};
+
+    if (Auth.loggedIn()) {
+        const user = data.me;
+      }
+
+    const handleClick = async () => {
+        try {
+          await addContact({
+            variables: { id: user._id }
+          });
+        } catch (e) {
+          console.log(e)
+        }
+      };
    
     return (
       <div className="Search">
@@ -29,29 +43,28 @@ function Search() {
         {json.filter((val) => {
             if (searchTerm ==="") {
                return ('') 
-            } else if (val.first_name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            // } else if (val.firstName.toLowerCase().includes(searchTerm.toLowerCase())) {
+            //     return val
+            } else if (val.lastName.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return val
-            } else if (val.last_name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return val
-            } else if (val.company_name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return val
-            }  else if (val.phone.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return val
-            } else if (val.website.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return val
-            } else if (val.linkedin.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return val
-            } else if (val.twitter.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return val
-            } else if (val.instagram.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return val
-            }
+            } 
+            // else if (val.company.toLowerCase().includes(searchTerm.toLowerCase())) {
+            //     return val
+            // }  else if (val.phone.toLowerCase().includes(searchTerm.toLowerCase())) {
+            //     return val
+            // } else if (val.website.toLowerCase().includes(searchTerm.toLowerCase())) {
+            //     return val
+            // } else if (val.linkedin.toLowerCase().includes(searchTerm.toLowerCase())) {
+            //     return val
+            // } else if (val.instagram.toLowerCase().includes(searchTerm.toLowerCase())) {
+            //     return val
+            // }
         }).map((val, key)=> {
-
             return (
             <div className="user" key={key}> 
-            <p>{val.first_name} , {val.last_name}</p>
-                {              
+            {/* <p>{val.first_name} , {val.last_name}</p> */}
+                <Card data= {val}/>
+                {/* {              
                 show?<p><BsFillTelephoneForwardFill/> {val.phone} <p> <IoIosBusiness/> {val.company_name}</p> 
                 <a href="mailto:"><HiOutlineMailOpen/> {val.email}</a>
                 <br/>
@@ -59,12 +72,10 @@ function Search() {
                 <br/>
                 <a href={val.linkedin} target='_blank'><BsLinkedin/> Linkedin</a>
                 <br/>
-                <a href={val.twitter}><FaTwitterSquare/> Twitter</a> 
-                <br/>
                 <a href={val.instagram} target='_blank'><AiFillInstagram/> Instagram</a></p>:null
-                }
+                } */}
 
-             <button onClick={() =>setShow(!show)}>Show Contact Info</button>
+             <button onClick={handleClick}>Add Contact</button>
              
             </div>
             );
