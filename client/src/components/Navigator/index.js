@@ -69,7 +69,7 @@ function Navigator() {
                 QRad
             </NavLink>
             <NavLink to='/profile' className={({ isActive }) => (isActive ? 'active' : 'inactive')}>
-                profile
+                my profile
             </NavLink>
             <NavLink to='/contacts' className={({ isActive }) => (isActive ? 'active' : 'inactive')}>
                 my contacts
