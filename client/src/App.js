@@ -35,6 +35,9 @@ function App() {
             <Route exact path="/sign-up">
               {/* <Signup /> */}
             </Route>
+            <Route exact path="/search">
+              <Search />
+            </Route>
 
             {/* <Route exact path="//:thoughtId">
               <Contacts /> */}
