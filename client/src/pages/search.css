@@ -1,0 +1,10 @@
+.search-input {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.user {
+    font-family: "Lato", sans-serif;
+    padding-top: 30px;
+    background-color: var(--first-color);
+}

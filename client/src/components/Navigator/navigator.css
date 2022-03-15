@@ -10,14 +10,15 @@
     margin: 0, 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: var(--second-color)
     
 }
 
-.navLink {
+.inactive, .navLink {
     padding: 25px;
     font-family: 'Lato', sans-serif;
     font-weight: lighter;
@@ -26,22 +27,24 @@
     font-size: 20px;
 }
 
-.brand {
+#brand {
     font-family: 'Righteous', cursive;
     color: var(--first-color);
     font-size: 30px;
     transition: all 0.4s ease 0s;
 }
 
-.navLink:hover {
+.navLink:hover, .inactive:hover {
     color: var(--third-color);
     transition: all 0.4s ease 0s;
     font-size: 25px;
     padding: 20px;
 }
 
-.brand:hover {
+#brand:hover {
     color: var(--third-color);
     transition: all 0.4s ease 0s;
-    font-size: 30px;
+    font-size: 36px;
+    text-decoration: none;
+    padding: 22px;
 }

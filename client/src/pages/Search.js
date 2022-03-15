@@ -17,6 +17,7 @@ function Search() {
     <div className="Search">
       <center>
         <input
+          className="search-input"
           type="text"
           placeholder="Search Contacts..."
           onChange={(event) => {
@@ -70,41 +71,39 @@ function Search() {
                   {val.first_name}, {val.last_name}
                 </p>
                 {show ? (
-                <div className="contact-info">
-                  <p>
-                    <BsFillTelephoneForwardFill /> {val.phone}{" "}
+                  <div>
                     <p>
-                      {" "}
-                      <IoIosBusiness /> {val.company_name}
+                      <BsFillTelephoneForwardFill /> {val.phone}{" "}
+                      <p>
+                        {" "}
+                        <IoIosBusiness /> {val.company_name}
+                      </p>
+                      <a href="mailto:">
+                        <HiOutlineMailOpen /> {val.email}
+                      </a>
+                      <br />
+                      <a href={val.website} target="_blank">
+                        <CgWebsite /> Website
+                      </a>
+                      <br />
+                      <a href={val.linkedin} target="_blank">
+                        <BsLinkedin /> Linkedin
+                      </a>
+                      <br />
+                      <a href={val.twitter}>
+                        <FaTwitterSquare /> Twitter
+                      </a>
+                      <br />
+                      <a href={val.instagram} target="_blank">
+                        <AiFillInstagram /> Instagram
+                      </a>
                     </p>
-                    <a href="mailto:">
-                      <HiOutlineMailOpen /> {val.email}
-                    </a>
-                    <br />
-                    <a href={val.website} target="_blank">
-                      <CgWebsite /> Website
-                    </a>
-                    <br />
-                    <a href={val.linkedin} target="_blank">
-                      <BsLinkedin /> Linkedin
-                    </a>
-                    <br />
-                    <a href={val.twitter}>
-                      <FaTwitterSquare /> Twitter
-                    </a>
-                    <br />
-                    <a href={val.instagram} target="_blank">
-                      <AiFillInstagram /> Instagram
-                    </a>
-                  </p>
                   </div>
                 ) : null}
 
                 <button onClick={() => setShow(!show)}>
                   Show Contact Info
                 </button>
-                <br></br>
-                <br></br>
                 <br></br>
                 <br></br>
               </div>
