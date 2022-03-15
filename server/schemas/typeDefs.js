@@ -1,14 +1,17 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+
   type User {
     _id: ID!
     username: String!
     email: String!
     password: String!
     cards: [Card!]!
+    contactCount: Int
     contacts: [User!]!
   }
+
   type Card {
     _id: ID
     tagline: String
@@ -21,6 +24,20 @@ const typeDefs = gql`
     phone: String
     linkedIn: String
     instagram: String
+    website: String
+  }
+
+  input CardInput {
+    _id: ID!
+    tagline: String
+    preferredName: String
+    pronouns: String
+    title: String
+    company: String
+    email: String!
+    phone: String
+    linkedIn: String
+    Instagram: String
     website: String
   }
 

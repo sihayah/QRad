@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const dateFormat = require("../utils/dateFormat");
+// const dateFormat = require("../utils/dateFormat");
 
 const cardSchema = new Schema({
   tagline: {
@@ -37,36 +37,26 @@ const cardSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
+    sparse: true,
     match: [/.+@.+\..+/, "Must be an email address!"],
   },
   phone: {
     type: String,
+
+    trim: true,
+
     required: false,
+
     match: [
       /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im,
       "Must include an internal dial code and phone number",
     ],
   },
+
   linkedIn: { type: String, required: false, unique: false, trim: true },
   instagram: { type: String, required: false, unique: false, trim: true },
   website: { type: String, required: false, unique: false, trim: true },
 
-  // comments: [
-  //   {
-  //     commentText: {
-  //       type: String,
-  //       required: true,
-  //       minlength: 1,
-  //       maxlength: 280,
-  //     },
-  //     createdAt: {
-  //       type: Date,
-  //       default: Date.now,
-  //       get: (timestamp) => dateFormat(timestamp),
-  //     },
-  //   },
-  // ],
 });
 
 const Card = model("Card", cardSchema);
