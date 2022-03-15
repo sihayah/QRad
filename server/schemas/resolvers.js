@@ -4,8 +4,8 @@ const { signToken } = require("../utils/Authorization");
 
 const resolvers = {
   Query: {
-    cards: async () => {
-      return Card.find().sort({ preferredName: 1 });
+    card: async () => {
+      return Card.find().sort({ lastName: 1 });
     },
 
     card: async (parent, { _id }) => {
@@ -39,6 +39,7 @@ const resolvers = {
   },
 
   Mutation: {
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
@@ -51,14 +52,16 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
       return { token, user };
     },
+
     addCard: async (parent, args, context) => {
       if (context.user) {
-        console.log(args);
+        console.log("Inside add card resolver", args);
         const card = await Card.create({
           ...args,
           username: context.user.username,
@@ -81,15 +84,18 @@ const resolvers = {
           { "new": true}
         );
 
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $set: { cards: updatedCard._id } },
-          { new: true, runValidators: false }
+    updateCard: async (parent, {_id, tagline, lastName, firstName, pronouns, title, company, email, phone, linkedIn, instagram, website}, context) => {
+      if (context.user) {
+        const updatedCard = await Card.findOneAndUpdate(
+          { _id: _id },
+          { tagline, lastName, firstName, pronouns, title, company, email, phone, linkedIn, instagram, website }
         );
-        return updatedUser;
+        console.log("Updated card: ", updatedCard)
+        return updatedCard;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
     addContact: async (parent, { _id }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
