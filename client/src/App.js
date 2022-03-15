@@ -1,10 +1,8 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import Home from './pages/Home';
 import Header from './components/Header';
-
 // import Search from './pages/Search';
 import Profile from "./pages/Profile/EditForm";
 // import Qrcode from './components/Qrcode;
@@ -41,6 +39,9 @@ function App() {
 
             <Route exact path="/sign-up">
               {/* <Signup /> */}
+            </Route>
+            <Route exact path="/search">
+              <Search />
             </Route>
 
             {/* <Route exact path="//:thoughtId">
