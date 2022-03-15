@@ -55,78 +55,115 @@ export default function Profile() {
             </p>
             {/* form for business card  */}
             <form onSubmit={handleFormSubmit}>
+        <label>
+          Firstname:
         <input 
             placeholder="firstname"
             onChange={handlechange}
             name="firstname"
             value={formState.firstname}
         />
-         <input 
+        </label>
+        <label>
+          Lastname:
+        <input 
             placeholder="lastname"
             onChange={handlechange}
             name="lastname"
             value={formState.lastname}
         />
-         <input 
+        </label>
+        <label>
+          Pronouns: 
+        <input 
             placeholder="pronouns"
             onChange={handlechange}
             name="pronouns"
             value={formState.pronouns}
         />
+        </label>
+        <label>
+          Title: 
         <input 
             placeholder="title"
             onChange={handlechange}
             name="title"
             value={formState.title}
         />
+        </label>
+        <label>
+          Tagline: 
         <input 
             placeholder="tagline"
             onChange={handlechange}
             name="tagline"
             value={formState.tagline}
         />
+        </label>
+        <label>
+          Email:
         <input 
             placeholder="email"
             onChange={handlechange}
             name="email"
             value={formState.email}
         />
-         <input 
+        </label>
+        <label>
+          Phone: 
+        <input 
             placeholder="phone"
             onChange={handlechange}
             name="phone"
             value={formState.phone}
         />
+        </label>
+        <label>
+          Company:
         <input 
             placeholder="company"
             onChange={handlechange}
             name="company"
             value={formState.company}
         />
-         <input 
+        </label>
+        <label>
+          Website: 
+          <input 
             placeholder="website"
             onChange={handlechange}
             name="website"
             value={formState.website}
         />
+        </label>
+        <label>
+          LinkedIn: 
         <input 
             placeholder="LinkedIn"
             onChange={handlechange}
             name="LinkedIn"
             value={formState.LinkedIn}
         />
+        </label>
+        <label>
+          Twitter: 
         <input 
             placeholder="Twitter"
             onChange={handlechange}
             name="Twitter"
             value={formState.Twitter}
         />
-        <input 
+        </label>
+       <label>
+         Instagram:
+       <input 
             placeholder="Instagram"
             onChange={handlechange}
             name="Instagram"
             value={formState.Instagram}
         />
+       </label>
+        
             </form>
         <button
               onClick={() => {
