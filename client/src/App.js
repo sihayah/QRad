@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Header from './components/Header';
 
 // import Search from './pages/Search';
-import Profile from "./pages/EditForm";
+import Profile from "./pages/Profile/EditForm";
 // import Qrcode from './components/Qrcode;
 // import Contacts from './components/Contacts';
 // import Card from './components/Card;
