@@ -1,27 +1,13 @@
-<<<<<<< HEAD
-// import "./search.css";
-// import json from "./MOCK_DATA.json";
-import React, { useState } from "react";
-// import { HiOutlineMailOpen } from "react-icons/hi";
-// import { BsFillTelephoneForwardFill } from "react-icons/bs";
-// import { IoIosBusiness } from "react-icons/io";
-// import { CgWebsite } from "react-icons/cg";
-// import { BsLinkedin } from "react-icons/bs";
-// import { FaTwitterSquare } from "react-icons/fa";
-// import { AiFillInstagram } from "react-icons/ai";
-=======
-
 import "./search.css";
 import json from "../data/MOCK_DATA.json";
-import React, {useState} from 'react'
-import {HiOutlineMailOpen } from 'react-icons/hi';
-import {BsFillTelephoneForwardFill} from 'react-icons/bs';
-import {IoIosBusiness} from 'react-icons/io';
-import {CgWebsite} from 'react-icons/cg';
-import {BsLinkedin} from 'react-icons/bs';
-import {FaTwitterSquare} from 'react-icons/fa';
-import {AiFillInstagram} from 'react-icons/ai';
->>>>>>> d2eeda9a51648f51f9281b2a35652b33cbbe3793
+import React, { useState } from "react";
+import { HiOutlineMailOpen } from "react-icons/hi";
+import { BsFillTelephoneForwardFill } from "react-icons/bs";
+import { IoIosBusiness } from "react-icons/io";
+import { CgWebsite } from "react-icons/cg";
+import { BsLinkedin } from "react-icons/bs";
+import { FaTwitterSquare } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
 
 function Search() {
   const [searchTerm, setSearchTerm] = useState("");
