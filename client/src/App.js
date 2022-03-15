@@ -4,12 +4,15 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from './pages/Home';
 import Header from './components/Header';
+
+import Search from './pages/Search';
 // import Qrcode from './components/Qrcode;
 // import Profile from './components/Profile';
 // import Contacts from './components/Contacts';
 // import Card from './components/Card;
 // // import Login from "./components/Login";
 // import Signup from "./components/Signup";
+
 
 const client = new ApolloClient({
   uri: "/graphql",
