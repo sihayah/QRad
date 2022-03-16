@@ -1,0 +1,27 @@
+.form {
+    padding: 20px;
+    margin-left: 10px;
+}
+
+.form-group {
+    margin-top: 10px;
+    font-family: "Rato", sans-serif;
+}
+
+.form-btn {
+    font-family: "Righteous", cursive;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.form-btn:hover {
+    background-color: var(--third-color);
+}
+
+.formLabel {
+    padding: 10px;
+}
+
+.feedback {
+    padding-left: 15px;
+}

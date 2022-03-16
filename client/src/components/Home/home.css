@@ -1,0 +1,23 @@
+.homeContainer {
+    background-color: var(--first-color);
+}
+
+.homeText {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.welcome {
+    font-family: "Righteous", cursive;
+    font-size: 48px;
+    color: var(--third-color);
+    padding: 60px;
+}
+
+.description {
+    font-family: "Rato", sans-serif;
+    font-weight: lighter;
+    color: var(--second-color);
+    font-size: 24px;
+    text-align: center;
+}

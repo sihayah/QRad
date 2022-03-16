@@ -1,20 +1,12 @@
 import React from "react";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from "@apollo/client";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Header from "./components/Header";
-import Search from "./pages/Search";
-import Profile from "./pages/Profile/EditForm";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import './index.css';
+import Header from './components/Header';
 // import Qrcode from './components/Qrcode;
 // import Contacts from './components/Contacts';
 // import Card from './components/Card;
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
@@ -36,45 +28,46 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
-  return (
-    <ApolloProvider client={client}>
-      <Router>
-        {/* <div className="flex-column justify-flex-start min-100-vh"> */}
-        <Header />
-        <div className="container">
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/profile">
-            <Profile />
-          </Route>
-          {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
-          <Route exact path="/thoughts/:thoughtId">
-            {/* <SingleThought /> */}
-          </Route>
-          <Route exact path="/search">
-            <Search />
-          </Route>
+// function App() {
+//   return (
+//     <ApolloProvider client={client}>
+//       <Router>
 
-          {/* <Route exact path="//:thoughtId">
-              <Contacts /> */}
-          {/* </Route> */}
-        </div>
-        {/* <Footer /> */}
-        {/* </div> */}
-      </Router>
-    </ApolloProvider>
+//         {/* <div className="flex-column justify-flex-start min-100-vh"> */}
+//           <Header />
+//           <div className="container">
+
+//             <Route exact path="/">
+//               <Home />
+//             </Route>
+
+//             <Route exact path="/sign-up">
+//               {/* <Signup /> */}
+//             </Route>
+
+//             {/* <Route exact path="//:thoughtId">
+//               <Contacts /> */}
+//             {/* </Route> */}
+//           </div>
+//           {/* <Footer /> */}
+//         {/* </div> */}
+
+//       </Router>
+//     </ApolloProvider>
+//   );
+// }
+
+function App() {
+
+  return (
+    <div className='site_container'> 
+      <ApolloProvider client={client}>
+        <Header></Header>
+      </ApolloProvider>
+    </div>
   );
 }
+
+
 
 export default App;
