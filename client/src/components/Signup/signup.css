@@ -1,27 +1,31 @@
 .form {
-    padding: 20px;
-    margin-left: 10px;
+  padding: 20px;
+  margin-left: 10px;
 }
 
 .form-group {
-    margin-top: 10px;
-    font-family: "Rato", sans-serif;
+  margin-top: 20px;
+  font-family: "Lato", sans-serif;
+  color: var(--second-color);
 }
 
 .form-btn {
-    font-family: "Righteous", cursive;
-    margin-top: 10px;
-    margin-left: 15px;
+  font-family: "Righteous", cursive;
+  margin-top: 10px;
+  margin-left: 15px;
 }
 
 .form-btn:hover {
-    background-color: var(--third-color);
+  background-color: var(--third-color);
 }
 
 .formLabel {
-    padding: 10px;
+  padding: 10px;
 }
 
-.feedback {
-    padding-left: 15px;
+.form-title {
+  font-family: "Righteous", sans-serif;
+  font-size: 24px;
+  margin-top: 20px;
+  color: var(--second-color);
 }
