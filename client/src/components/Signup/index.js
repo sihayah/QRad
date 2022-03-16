@@ -2,14 +2,9 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Form, Button, Alert } from "react-bootstrap";
 
-<<<<<<< HEAD
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import './signup.css';
-=======
-import { ADD_USER } from "../../utils/mutations";
-import Auth from "../../utils/auth";
->>>>>>> develop
 
 const Signup = (props) => {
   const [addUser] = useMutation(ADD_USER);
