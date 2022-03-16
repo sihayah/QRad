@@ -1,6 +1,6 @@
 import React from "react";
-import { Navbar, NavbarBrand, Nav, Container } from "react-bootstrap";
-import { LinkContainer } from 'react-router-bootstrap'
+// import { Navbar, NavbarBrand, Nav, Container } from "react-bootstrap";
+// import { LinkContainer } from 'react-router-bootstrap'
 import './navigator.css';
 import Auth from '../../utils/auth';
 import { NavLink } from 'react-router-dom';

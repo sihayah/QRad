@@ -12,13 +12,16 @@ const Header = () => {
   return (
     <Router>
       <Navigator></Navigator>
-      <div>
-        <Route path="/" component={Home} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/contacts" component={Contacts} /> 
-        <Route path="/login" component={LoginForm} />
-        <Route path="/signup" component={Signup} />
-      </div>
+      <Switch>
+        <div>
+          <Route path="/" component={Home} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/contacts" component={Contacts} /> 
+          <Route path="/login" component={LoginForm} />
+          <Route path="/signup" component={Signup} />
+        </div>
+      </Switch>
+    
     </Router>
   );
 };

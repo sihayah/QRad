@@ -1,5 +1,5 @@
 import React from 'react';
-import './home.css'
+import './home.css';
 
 function Home() {
     return (
@@ -22,22 +22,22 @@ function Home() {
 export default Home;
 
 
-import React from 'react';
-import me from "../MOCK_ME.json";
-import Card from '../components/Card';
-import Auth from '../utils/auth';
-import '../components/Card/style.css';
-import {HiOutlineMailOpen } from 'react-icons/hi';
-import {BsFillTelephoneForwardFill} from 'react-icons/bs';
-import {IoIosBusiness} from 'react-icons/io';
-import {CgWebsite} from 'react-icons/cg';
-import {AiFillInstagram} from 'react-icons/ai';
-import {AiOutlineLinkedin} from 'react-icons/ai';
-import {MdOutlineBusinessCenter} from 'react-icons/md';
+// import React from 'react';
+// import me from "../MOCK_ME.json";
+// import Card from '../components/Card';
+// import Auth from '../utils/auth';
+// import '../components/Card/style.css';
+// import {HiOutlineMailOpen } from 'react-icons/hi';
+// import {BsFillTelephoneForwardFill} from 'react-icons/bs';
+// import {IoIosBusiness} from 'react-icons/io';
+// import {CgWebsite} from 'react-icons/cg';
+// import {AiFillInstagram} from 'react-icons/ai';
+// import {AiOutlineLinkedin} from 'react-icons/ai';
+// import {MdOutlineBusinessCenter} from 'react-icons/md';
 
 
 
-import { } from '../utils/queries';
+// import { } from '../utils/queries';
 
 // const Home = () => {
 
