@@ -1,92 +1,88 @@
 
 // import './style.css';
-import json from "./data/MOCK_DATA.json";
 import React, {useState,} from 'react'
 import Card from '../../components/Card';
 import ContactList from '../../components/Contacts';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_CONTACT } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
-import Auth from '../../utils/auth';
+import { QUERY_ME, QUERY_USERS } from "../../utils/queries";
 
 function Search() {
   
     const [searchTerm, setSearchTerm] = useState('')
-    // const [show, setShow] = useState(false)
-    const addContact = useMutation(ADD_CONTACT);
+    const [addContact] = useMutation(ADD_CONTACT);
+    let myContacts = [];
+    let myUsername = '';
+    const { data: myData } = useQuery(QUERY_ME);
+    if(myData){
+      myContacts = myData.me.contacts;
+      myUsername = myData.me.username;
+    }
+    let allUsers = [];
+    const {data: userData, loading } = useQuery(QUERY_USERS);
+    if (userData) {
+      allUsers = userData.users; 
+    }
+    allUsers.map(user => console.log(user.cards[0]))
 
-  // const [userData, setUserData] = useState({});
-    const { data, loading } = useQuery(QUERY_ME);
+    const renderContactList = () => {
+      if (!myContacts === 0) {
+        return (
+          <ContactList username ={myUsername} contacts={myContacts}/> 
+        )            
+      }      
+    }
 
-    if (data) {console.log(data)}
-
-    const handleClick = async (val) => {
-      console.log(val._id)
-        // try {
-        //   await addContact({
-        //     variables: { id: _id }
-        //   });
-        // } catch (e) {
-        //   console.log(e)
-        // }
+    const handleClick = async (user) => {
+      console.log(user._id)
+        try {
+          await addContact({
+            variables: { id: user._id }
+          });
+        } catch (e) {
+          console.log(e)
+        }
       };
-   
-    return (
-      <div className="Search">
-        <center>
-        <input type="text" 
-        placeholder="Search Contacts..." 
-        onChange={event => {setSearchTerm(event.target.value);
-         }}
-        />
-        <hr/>
-        
-        {json.filter((val) => {
-            if (searchTerm ==="") {
-               return ('') 
-            // } else if (val.firstName.toLowerCase().includes(searchTerm.toLowerCase())) {
-            //     return val
-            } else if (val.lastName.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return val
-            } 
-            // else if (val.company.toLowerCase().includes(searchTerm.toLowerCase())) {
-            //     return val
-            // }  else if (val.phone.toLowerCase().includes(searchTerm.toLowerCase())) {
-            //     return val
-            // } else if (val.website.toLowerCase().includes(searchTerm.toLowerCase())) {
-            //     return val
-            // } else if (val.linkedin.toLowerCase().includes(searchTerm.toLowerCase())) {
-            //     return val
-            // } else if (val.instagram.toLowerCase().includes(searchTerm.toLowerCase())) {
-            //     return val
-            // }
-        }).map((val, key)=> {
-            return (
-            <div className="user" key={key}> 
-            {/* <p>{val.first_name} , {val.last_name}</p> */}
-                <Card data= {val}/>
-                {/* {              
-                show?<p><BsFillTelephoneForwardFill/> {val.phone} <p> <IoIosBusiness/> {val.company_name}</p> 
-                <a href="mailto:"><HiOutlineMailOpen/> {val.email}</a>
-                <br/>
-                <a href={val.website} target='_blank'><CgWebsite/> Website</a> 
-                <br/>
-                <a href={val.linkedin} target='_blank'><BsLinkedin/> Linkedin</a>
-                <br/>
-                <a href={val.instagram} target='_blank'><AiFillInstagram/> Instagram</a></p>:null
-                } */}
+    if (loading) {
+      return (
+        <h4>Loading...</h4>
+      )
+    }
+    if (allUsers) {
+      return (
+        <div className="Search">
+          <center>
+          <input type="text" 
+          placeholder="Search Contacts..." 
+          onChange={event => {setSearchTerm(event.target.value);
+          }}
+          />
+          <hr/>
+          
+          {allUsers.filter(user => {
+              if (searchTerm ==="") {
+                return ('') 
+              } else if ((user.cards[0].lastName).toLowerCase().includes(searchTerm.toLowerCase())) {
+                  return user
+              } 
+          }).map((user)=> {
+              return (
+              <div className="user" key={user.username}> 
+                  <Card data= {user.cards[0]}/>
+              <button onClick={()=>handleClick(user)}>Add Contact</button>
+              
+              </div>
+              );
+          })}
+          
+          {renderContactList()}
 
-             <button onClick={()=>handleClick(val)}>Add Contact</button>
-             
-            </div>
-            );
-        })}
-        {/* {data.me.contacts && 
-          <ContactList /> 
-          } */}
-        </center>
-    </div>
-    );
+
+          </center>
+      </div>
+      );      
+    }
+
 }
 
 export default Search ;
