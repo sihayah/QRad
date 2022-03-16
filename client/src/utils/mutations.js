@@ -72,6 +72,7 @@ export const ADD_CARD = gql`
       website: $website
       avatar: $avatar
     ) {
+      _id
       tagline
       firstName
       lastName
