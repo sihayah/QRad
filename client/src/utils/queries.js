@@ -33,6 +33,19 @@ export const QUERY_ME = gql`
         username
         _id
       }
+      cards {
+        firstName
+        lastName
+        pronouns
+        title
+        company
+        email
+        phone
+        linkedIn
+        website
+        instagram
+        avatar
+      }
     }
   }
 `;

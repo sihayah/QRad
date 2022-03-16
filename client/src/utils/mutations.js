@@ -46,7 +46,8 @@ export const REMOVE_CONTACT = gql`
 export const ADD_CARD = gql`
   mutation addCard(
     $tagline: String
-    $preferredName: String
+    $firstName: String
+    $lastName: String
     $pronouns: String
     $title: String
     $company: String
@@ -55,10 +56,12 @@ export const ADD_CARD = gql`
     $linkedIn: String
     $instagram: String
     $website: String
+    $avatar: String
   ) {
     addCard(
       tagline: $tagline
-      preferredName: $preferredName
+      firstName: $firstName
+      lastName: $lastName
       pronouns: $pronouns
       title: $title
       company: $company
@@ -67,9 +70,11 @@ export const ADD_CARD = gql`
       linkedIn: $linkedIn
       instagram: $instagram
       website: $website
+      avatar: $avatar
     ) {
       tagline
-      preferredName
+      firstName
+      lastName
       pronouns
       title
       company
@@ -78,6 +83,7 @@ export const ADD_CARD = gql`
       linkedIn
       instagram
       website
+      avatar
     }
   }
 `;
@@ -86,7 +92,8 @@ export const UPDATE_CARD = gql`
   mutation updateCard(
     $_id: ID!
     $tagline: String
-    $preferredName: String
+    $firstName: String
+    $lastName: String
     $pronouns: String
     $title: String
     $company: String
@@ -99,7 +106,8 @@ export const UPDATE_CARD = gql`
     updateCard(
       _id: $_id
       tagline: $tagline
-      preferredName: $preferredName
+      firstName: $firstName
+      lastName: $lastName
       pronouns: $pronouns
       title: $title
       company: $company
@@ -110,7 +118,8 @@ export const UPDATE_CARD = gql`
       website: $website
     ) {
       tagline
-      preferredName
+      firstName
+      lastName
       pronouns
       title
       company
