@@ -54,6 +54,19 @@ export const QUERY_ME = gql`
       contacts {
         username
         _id
+        email
+        cards {
+          firstName
+          lastName
+          pronouns
+          title
+          company
+          phone
+          linkedIn
+          website
+          instagram
+          avatar
+        }
       }
       cards {
         firstName
