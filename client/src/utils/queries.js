@@ -6,6 +6,19 @@ export const QUERY_USERS = gql`
       username
       _id
       email
+      cards {
+        firstName
+        lastName
+        pronouns
+        title
+        company
+        email
+        phone
+        linkedIn
+        website
+        instagram
+        avatar
+      }
     }
   }
 `;
