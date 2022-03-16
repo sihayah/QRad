@@ -13,7 +13,7 @@ function Home() {
                 <br></br>
                 <br></br>
                 Create your digital business card today.
-</p>
+                </p>
             </div>
         </section>
     )
