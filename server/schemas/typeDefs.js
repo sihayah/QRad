@@ -25,6 +25,7 @@ const typeDefs = gql`
     linkedIn: String
     instagram: String
     website: String
+    avatar: String
   }
 
   input CardInput {
@@ -57,7 +58,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth!
     addUser(username: String!, email: String!, password: String!): Auth!
-    addCard(tagline: String, firstName: String, lastName: String, pronouns: String, title: String, company: String, email: String!, phone: String, linkedIn: String, instagram: String, website: String): Card!
+    addCard(avatar: String, tagline: String, firstName: String, lastName: String, pronouns: String, title: String, company: String, email: String!, phone: String, linkedIn: String, instagram: String, website: String): Card!
     updateCard(_id: ID!, tagline: String, firstName: String, lastName: String, pronouns: String, title: String, company: String, email: String, phone: String, linkedIn: String, instagram: String, website: String): Card!
     addContact(_id: ID!): User!
     removeContact(_id: ID!): User!
