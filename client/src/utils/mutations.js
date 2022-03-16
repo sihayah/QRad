@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $password: String!, $email: String!) {
@@ -7,20 +7,19 @@ export const ADD_USER = gql`
       user {
         username
         email
-        
       }
     }
   }
 `;
 
 export const LOGIN = gql`
-  mutation login($email: String!, $password: String!){
+  mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       user {
         _id
         username
         email
-        }
+      }
       token
     }
   }
@@ -45,8 +44,30 @@ export const REMOVE_CONTACT = gql`
 `;
 
 export const ADD_CARD = gql`
-  mutation addCard($tagline: String, $preferredName: String, $pronouns: String, $title: String, $company: String, $email: String!, $phone: String, $linkedIn: String, $instagram: String, $website: String) {
-    addCard (tagline: $tagline, preferredName: $preferredName, pronouns: $pronouns, title: $title, company: $company, email: $email, phone: $phone, linkedIn: $linkedIn, instagram: $instagram, website: $website) {            
+  mutation addCard(
+    $tagline: String
+    $preferredName: String
+    $pronouns: String
+    $title: String
+    $company: String
+    $email: String!
+    $phone: String
+    $linkedIn: String
+    $instagram: String
+    $website: String
+  ) {
+    addCard(
+      tagline: $tagline
+      preferredName: $preferredName
+      pronouns: $pronouns
+      title: $title
+      company: $company
+      email: $email
+      phone: $phone
+      linkedIn: $linkedIn
+      instagram: $instagram
+      website: $website
+    ) {
       tagline
       preferredName
       pronouns
@@ -56,24 +77,48 @@ export const ADD_CARD = gql`
       phone
       linkedIn
       instagram
-      website  
+      website
     }
   }
 `;
 
 export const UPDATE_CARD = gql`
-mutation updateCard($_id: ID!, $tagline: String, $preferredName: String, $pronouns: String, $title: String, $company: String, $email: String, $phone: String, $linkedIn: String, $instagram: String, $website: String){
-  updateCard (_id: $_id, tagline: $tagline, preferredName: $preferredName, pronouns: $pronouns, title: $title, company: $company, email: $email, phone: $phone, linkedIn: $linkedIn, instagram: $instagram, website: $website){            
-    tagline
-    preferredName
-    pronouns
-    title
-    company
-    email
-    phone
-    linkedIn
-    instagram
-    website  
-  }   
-}
-`
+  mutation updateCard(
+    $_id: ID!
+    $tagline: String
+    $preferredName: String
+    $pronouns: String
+    $title: String
+    $company: String
+    $email: String
+    $phone: String
+    $linkedIn: String
+    $instagram: String
+    $website: String
+  ) {
+    updateCard(
+      _id: $_id
+      tagline: $tagline
+      preferredName: $preferredName
+      pronouns: $pronouns
+      title: $title
+      company: $company
+      email: $email
+      phone: $phone
+      linkedIn: $linkedIn
+      instagram: $instagram
+      website: $website
+    ) {
+      tagline
+      preferredName
+      pronouns
+      title
+      company
+      email
+      phone
+      linkedIn
+      instagram
+      website
+    }
+  }
+`;
