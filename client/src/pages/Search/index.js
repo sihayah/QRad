@@ -43,6 +43,9 @@ function Search() {
           await addContact({
             variables: { _id: user._id }
           });
+          myContacts = myData.me.contacts;
+          window.location.assign('/contacts');
+          
         } catch (e) {
           console.log(e)
         }
@@ -74,8 +77,10 @@ function Search() {
               return (
               <div className="user" key={user.username}> 
                   <Card data= {user.cards[0]}/>
-              <button onClick={()=>handleClick(user)}>Add Contact</button>
-              
+               
+                {user.username === myUsername ? '': 
+                <button onClick={()=>handleClick(user)}>Add Contact</button>
+                }
               </div>
               );
           })}
