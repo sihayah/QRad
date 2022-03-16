@@ -57,6 +57,7 @@ const LoginForm = () => {
         >
           Something went wrong with your login credentials!
         </Alert>
+        <p class="form-title">Login to your Qrad account</p>
         <Form.Group className="form-group">
           <Form.Label className="formLabel" htmlFor="email">
             Email
@@ -69,6 +70,9 @@ const LoginForm = () => {
             value={userFormData.email}
             required
           />
+          <Form.Control.Feedback type="invalid" className="feedback">
+            Email is required!
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="form-group">
@@ -83,6 +87,9 @@ const LoginForm = () => {
             value={userFormData.password}
             required
           />
+          <Form.Control.Feedback type="invalid" className="feedback">
+            Password is required!
+          </Form.Control.Feedback>
         </Form.Group>
         <Button
           disabled={!(userFormData.email && userFormData.password)}

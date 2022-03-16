@@ -7,7 +7,6 @@ import Auth from "../../utils/auth";
 import "./signup.css";
 
 const Signup = (props) => {
-  const [addUser, { error }] = useMutation(ADD_USER);
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
@@ -18,6 +17,7 @@ const Signup = (props) => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -72,7 +72,10 @@ const Signup = (props) => {
         >
           Something went wrong with your signup!
         </Alert>
-
+        <p i-right-wrapper className="form-title">
+          {/* missing picture of the business card */}
+          Sign up with QRad
+        </p>
         <Form.Group className="form-group">
           <Form.Label htmlFor="username" className="formLabel">
             Username
@@ -85,6 +88,9 @@ const Signup = (props) => {
             value={userFormData.username}
             required
           />
+          <Form.Control.Feedback className="feedback" type="invalid">
+            Username is required!
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="form-group">
@@ -99,6 +105,9 @@ const Signup = (props) => {
             value={userFormData.email}
             required
           />
+          <Form.Control.Feedback className="feedback" type="invalid">
+            Email is required!
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="form-group">
@@ -113,6 +122,9 @@ const Signup = (props) => {
             value={userFormData.password}
             required
           />
+          <Form.Control.Feedback className="feedback" type="invalid">
+            Password is required!
+          </Form.Control.Feedback>
         </Form.Group>
         <Button
           disabled={

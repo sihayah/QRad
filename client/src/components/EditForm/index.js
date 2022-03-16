@@ -4,7 +4,8 @@ import { useMutation } from "@apollo/client";
 // import Auth from "../../utils/auth";
 import { storage } from "../../utils/firebase";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
-import {v4 as uuidv4} from 'uuid';
+import "./editform.css";
+import { v4 as uuidv4 } from "uuid";
 
 //export and calling function
 export default function EditForm() {
@@ -55,7 +56,7 @@ export default function EditForm() {
           await addCard({
             variables: { ...formState, avatar: profileURL },
           });
-          window.location.assign('/profile');
+          window.location.assign("/profile");
         }
       );
     } catch (err) {
@@ -66,111 +67,143 @@ export default function EditForm() {
   return (
     //adding css into the js file instead of using a css file
     <div id="biz-profile">
+      <p i-right-wrapper className="biz-card">
+        {/* missing picture of the business card */}
+        create your digital business card
+      </p>
       {/* form for business card  */}
       <form onSubmit={handleFormSubmit}>
-        <label>
-          Firstname:
+        <label className="form-label">
+          First Name:
           <input
             placeholder="firstname"
             onChange={handlechange}
-            name="firstName"
-            value={formState.firstName}
+            name="firstname"
+            value={formState.firstname}
+            className="form-input"
           />
         </label>
-        <label>
-          Lastname:
+        <label className="form-label">
+          Last Name:
           <input
             placeholder="lastname"
             onChange={handlechange}
-            name="lastName"
-            value={formState.lastName}
+            name="lastname"
+            value={formState.lastname}
+            className="form-input"
           />
         </label>
-        <label>
+        <label className="form-label">
           Pronouns:
           <input
             placeholder="pronouns"
             onChange={handlechange}
             name="pronouns"
             value={formState.pronouns}
+            className="form-input"
           />
         </label>
-        <label>
+        <label className="form-label">
           Title:
           <input
             placeholder="title"
             onChange={handlechange}
             name="title"
             value={formState.title}
+            className="form-input"
           />
         </label>
-        <label>
+        <label className="form-label">
           Tagline:
           <input
             placeholder="tagline"
             onChange={handlechange}
             name="tagline"
             value={formState.tagline}
+            className="form-input"
           />
         </label>
-        <label>
+        <label className="form-label">
           Email:
           <input
             placeholder="email"
             onChange={handlechange}
             name="email"
             value={formState.email}
+            className="form-input"
           />
         </label>
-        <label>
+        <label className="form-label">
           Phone:
           <input
             placeholder="phone"
             onChange={handlechange}
             name="phone"
             value={formState.phone}
+            className="form-input"
           />
         </label>
-        <label>
+        <label className="form-label">
           Company:
           <input
             placeholder="company"
             onChange={handlechange}
             name="company"
             value={formState.company}
+            className="form-input"
           />
         </label>
-        <label>
+        <label className="form-label">
           Website:
           <input
             placeholder="website"
             onChange={handlechange}
             name="website"
             value={formState.website}
+            className="form-input"
           />
         </label>
-        <label>
+        <label className="form-label">
           LinkedIn:
           <input
             placeholder="linkedIn"
             onChange={handlechange}
             name="linkedIn"
             value={formState.LinkedIn}
+            className="form-input"
           />
         </label>
-        <label>
+        <label className="form-label">
+          Twitter:
+          <input
+            placeholder="Twitter"
+            onChange={handlechange}
+            name="Twitter"
+            value={formState.Twitter}
+            className="form-input"
+          />
+        </label>
+        <label className="form-label">
           Instagram:
           <input
             placeholder="instagram"
             onChange={handlechange}
             name="instagram"
             value={formState.Instagram}
+            className="form-input"
           />
         </label>
+        <label className="form-label">Avatar:</label>
         <input type="file" onChange={previewImg} />
-        {selectedImg ? <img src={selectedImg} name={selectedImg} alt="preview" /> : ""}
+        {selectedImg ? (
+          <img src={selectedImg} name={selectedImg} alt="preview" />
+        ) : (
+          ""
+        )}
       </form>
-      <button onClick={handleFormSubmit}>Save Edit</button>
+      <button onClick={handleFormSubmit} className="save-btn">
+        Save Edits
+      </button>
     </div>
   );
 }
