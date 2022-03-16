@@ -13,6 +13,9 @@ const Card = ({ data }) => {
     if (!data) {
         return <h3>No data here yet!</h3>;
       }
+    if (data) {
+        console.log(data)
+    }
     
     return(
         <>
