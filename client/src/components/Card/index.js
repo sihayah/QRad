@@ -10,6 +10,8 @@ import {MdOutlineBusinessCenter} from 'react-icons/md';
 
 const Card = ({ data }) => {
 
+    console.log(data.avatar)
+
     if (!data) {
         return <h3>No data here yet!</h3>;
       }
@@ -26,9 +28,9 @@ const Card = ({ data }) => {
                     <p className="tagline">{data.tagline}</p>
                 )} 
             </div>
-            {data.img && (
+            {data.avatar && (
                 <div className='card-img'>
-                    <img alt ={data.usernmae} src={data.img}/>
+                    <img alt ={data.usernmae} src={data.avatar} />
                 </div>
                 )} 
             <ul>
