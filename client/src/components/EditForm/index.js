@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 // import Auth from "../../utils/auth";
 import { storage } from "../../utils/firebase";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
-import './editform.css';
+import "./editform.css";
 
 //export and calling function
 export default function EditForm() {
@@ -82,7 +82,7 @@ export default function EditForm() {
       </p>
       {/* form for business card  */}
       <form onSubmit={handleFormSubmit}>
-        <label className='form-label'>
+        <label className="form-label">
           First Name:
           <input
             placeholder="firstname"
@@ -92,7 +92,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Last Name:
           <input
             placeholder="lastname"
@@ -102,7 +102,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Pronouns:
           <input
             placeholder="pronouns"
@@ -112,7 +112,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Title:
           <input
             placeholder="title"
@@ -122,7 +122,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Tagline:
           <input
             placeholder="tagline"
@@ -132,7 +132,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Email:
           <input
             placeholder="email"
@@ -142,7 +142,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Phone:
           <input
             placeholder="phone"
@@ -152,7 +152,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Company:
           <input
             placeholder="company"
@@ -162,7 +162,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Website:
           <input
             placeholder="website"
@@ -172,7 +172,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           LinkedIn:
           <input
             placeholder="LinkedIn"
@@ -182,7 +182,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Twitter:
           <input
             placeholder="Twitter"
@@ -192,7 +192,7 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
-        <label className='form-label'>
+        <label className="form-label">
           Instagram:
           <input
             placeholder="Instagram"
@@ -202,10 +202,13 @@ export default function EditForm() {
             className="form-input"
           />
         </label>
+        <label className="form-label">Avatar:</label>
         <input type="file" onChange={previewImg} />
         {selectedImg ? <img src={selectedImg} alt="preview" /> : ""}
       </form>
-      <button onClick={handleFormSubmit} className="save-btn">Save Edits</button>
+      <button onClick={handleFormSubmit} className="save-btn">
+        Save Edits
+      </button>
     </div>
   );
 }
