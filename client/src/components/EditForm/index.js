@@ -52,7 +52,7 @@ export default function EditForm() {
       await uploadString(uploadImg, selectedImg, "data_url").then(
         async (snapshot) => {
           const profileURL = await getDownloadURL(uploadImg);
-          console.log(profileURL);
+          // console.log(profileURL);
           await addCard({
             variables: { ...formState, avatar: profileURL },
           });
@@ -67,7 +67,7 @@ export default function EditForm() {
   return (
     //adding css into the js file instead of using a css file
     <div id="biz-profile">
-      <p i-right-wrapper className="biz-card">
+      <p className="biz-card">
         {/* missing picture of the business card */}
         create your digital business card
       </p>
@@ -76,20 +76,20 @@ export default function EditForm() {
         <label className="form-label">
           First Name:
           <input
-            placeholder="firstname"
+            placeholder="first name"
             onChange={handlechange}
-            name="firstname"
-            value={formState.firstname}
+            name="firstName"
+            value={formState.firstName}
             className="form-input"
           />
         </label>
         <label className="form-label">
           Last Name:
           <input
-            placeholder="lastname"
+            placeholder="last name"
             onChange={handlechange}
-            name="lastname"
-            value={formState.lastname}
+            name="lastName"
+            value={formState.lastName}
             className="form-input"
           />
         </label>
@@ -170,16 +170,6 @@ export default function EditForm() {
             onChange={handlechange}
             name="linkedIn"
             value={formState.LinkedIn}
-            className="form-input"
-          />
-        </label>
-        <label className="form-label">
-          Twitter:
-          <input
-            placeholder="Twitter"
-            onChange={handlechange}
-            name="Twitter"
-            value={formState.Twitter}
             className="form-input"
           />
         </label>
