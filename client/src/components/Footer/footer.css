@@ -1,0 +1,19 @@
+.footer-container {
+    background-color: var(--second-color);
+    width: 100%;
+    color: var(--first-color);
+    height: auto;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px -5px 5px rgba(0, 0, 0, .5);
+    margin-top: 40px;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-header {
+    font-size: 14px;
+    font-family: 'Lato', 'sans-serif';
+    font-weight: lighter;
+}

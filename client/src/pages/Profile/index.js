@@ -4,6 +4,7 @@ import { QUERY_ME } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
 import me from '../../MOCK_ME.json';
+import './profile.css';
 
 const Profile = () => {
 
@@ -13,7 +14,9 @@ const Profile = () => {
       return(
           <>
             <Link to='/editform'>
-              Create my QRad 
+              <div className='create-link'>
+              Create my QRad
+              </div>
             </Link>
               
           </>
