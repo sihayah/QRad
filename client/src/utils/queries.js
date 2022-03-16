@@ -6,18 +6,40 @@ export const QUERY_USERS = gql`
       username
       _id
       email
+      cards {
+        firstName
+        lastName
+        pronouns
+        title
+        company
+        email
+        phone
+        linkedIn
+        website
+        instagram
+        avatar
+      }
     }
   }
 `;
 
 export const QUERY_USER = gql`
-  query user($username: String!) {
-    user(username: $username) {
+  query user($_id: ID!) {
+    user(_id: $_id) {
       username
       email
       cards {
+        firstName
+        lastName
+        pronouns
+        title
+        company
         email
-        _id
+        phone
+        linkedIn
+        website
+        instagram
+        avatar
       }
     } 
   }
@@ -32,6 +54,32 @@ export const QUERY_ME = gql`
       contacts {
         username
         _id
+        email
+        cards {
+          firstName
+          lastName
+          pronouns
+          title
+          company
+          phone
+          linkedIn
+          website
+          instagram
+          avatar
+        }
+      }
+      cards {
+        firstName
+        lastName
+        pronouns
+        title
+        company
+        email
+        phone
+        linkedIn
+        website
+        instagram
+        avatar
       }
     }
   }

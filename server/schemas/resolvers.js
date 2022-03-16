@@ -19,8 +19,8 @@ const resolvers = {
         .populate("contacts");
     },
 
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id })
         .select("-__v -password")
         .populate("cards")
         .populate("contacts");

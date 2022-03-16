@@ -5,27 +5,27 @@ import { useMutation } from "@apollo/client";
 import { storage } from "../../utils/firebase";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
 import "./editform.css";
+import { v4 as uuidv4 } from "uuid";
 
 //export and calling function
 export default function EditForm() {
-  const addCard = useMutation(ADD_CARD);
+  const [addCard] = useMutation(ADD_CARD);
   //targeting formState and then setFormState
   // allows to setup the form for the values so that consologging will work
   const [formState, setFormState] = useState({
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     pronouns: "",
     title: "",
+    company: "",
     tagline: "",
     email: "",
     phone: "",
     website: "",
-    LinkedIn: "",
-    Twitter: "",
-    Instagram: "",
+    linkedIn: "",
+    instagram: "",
   });
   const [selectedImg, setSelectedImg] = useState(null);
-  const [img, setImg] = useState(null);
   //form state targets specific event values
   const handlechange = (e) => {
     const { name, value } = e.target;
@@ -34,21 +34,20 @@ export default function EditForm() {
       [name]: value,
     });
   };
-  console.log(formState);
   const previewImg = (e) => {
     const reader = new FileReader();
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]);
-      setImg(e.target.files[0]);
     }
     reader.onload = (readerEvent) => {
       setSelectedImg(readerEvent.target.result);
     };
   };
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     // use try/catch instead of promises to handle errors
-    const uploadImg = ref(storage, `/image/${img.name}`);
+    const uploadImg = ref(storage, `/image/${uuidv4()}`);
     try {
       await uploadString(uploadImg, selectedImg, "data_url").then(
         async (snapshot) => {
@@ -57,20 +56,12 @@ export default function EditForm() {
           await addCard({
             variables: { ...formState, avatar: profileURL },
           });
+          window.location.assign("/profile");
         }
       );
     } catch (err) {
       console.log(err);
     }
-
-    // try {
-    //   const { data } = await addCard({
-    //     variables: { ...formState, avatar: profileURL }
-    //   });
-    //   Auth.login(data.addUser.token);
-    // } catch (e) {
-    //   console.error(e);
-    // }
   };
 
   return (
@@ -175,9 +166,9 @@ export default function EditForm() {
         <label className="form-label">
           LinkedIn:
           <input
-            placeholder="LinkedIn"
+            placeholder="linkedIn"
             onChange={handlechange}
-            name="LinkedIn"
+            name="linkedIn"
             value={formState.LinkedIn}
             className="form-input"
           />
@@ -195,88 +186,24 @@ export default function EditForm() {
         <label className="form-label">
           Instagram:
           <input
-            placeholder="Instagram"
+            placeholder="instagram"
             onChange={handlechange}
-            name="Instagram"
+            name="instagram"
             value={formState.Instagram}
             className="form-input"
           />
         </label>
         <label className="form-label">Avatar:</label>
         <input type="file" onChange={previewImg} />
-        {selectedImg ? <img src={selectedImg} alt="preview" /> : ""}
+        {selectedImg ? (
+          <img src={selectedImg} name={selectedImg} alt="preview" />
+        ) : (
+          ""
+        )}
       </form>
       <button onClick={handleFormSubmit} className="save-btn">
         Save Edits
       </button>
     </div>
   );
-}
-
-//all imports for user profile
-// import { Redirect, useParams } from 'react-router-dom';
-// import ThoughtForm from '../components/ThoughtForm';
-// import ThoughtList from '../components/ThoughtList';
-// import FriendList from '../components/FriendList';
-// import { QUERY_USER, QUERY_ME } from '../utils/queries';
-// import { ADD_FRIEND } from '../utils/mutations';
-// import Auth from '../utils/auth';
-
-//for profile  purposes so that username links with userParams
-// const Profile = (props) => {
-//     const { username: userParam } = useParams();
-
-//     const [addFriend] = useMutation(ADD_FRIEND);
-//     const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-//       variables: { username: userParam },
-//     });
-
-//     const user = data?.me || data?.user || {};
-
-//     // redirect to personal profile page if username is yours
-//     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-//       return <Redirect to="/profile" />;
-//     }
-
-//     if (loading) {
-//       return <div>Loading...</div>;
-//     }
-
-//     if (!user?.username) {
-//       return (
-//         <h4>
-//           You need to be logged in to see this. Use the navigation links above to
-//           sign up or log in!
-//         </h4>
-//       );
-//     }
-
-{
-  /* <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-        </h2>
-
-        {userParam && (
-          <button className="btn ml-auto" onClick={handleClick}>
-            Add Friend
-          </button>
-        )}
-      </div>
-      <div className="flex-row justify-space-between mb-3">
-        <div className="col-12 mb-3 col-lg-8">
-          <ThoughtList
-            thoughts={user.thoughts}
-            title={`${user.username}'s thoughts...`}
-          />
-        </div>
-        <div className="col-12 col-lg-3 mb-3">
-          <FriendList
-            username={user.username}
-            friendCount={user.friendCount}
-            friends={user.friends}
-          />
-        </div>
-      </div>
-      <div className="mb-3">{!userParam && <ThoughtForm />}</div> */
 }
