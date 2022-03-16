@@ -71,23 +71,26 @@ function Navigator() {
             >
               QRad
             </NavLink>
+            {Auth.loggedIn() &&
             <NavLink
               to="/profile"
               className={({ isActive }) => (isActive ? "active" : "inactive")}
             >
               my profile
             </NavLink>
+            } 
+            {Auth.loggedIn() &&
             <NavLink
               to="/contacts"
               className={({ isActive }) => (isActive ? "active" : "inactive")}
             >
               my contacts
             </NavLink>
-
+            }
             {Auth.loggedIn() ? (
               <>
-                <a href="/" onClick={logout}>
-                  Log out
+                <a href="/" onClick={logout} className="logout">
+                  log out
                 </a>
               </>
             ) : (
