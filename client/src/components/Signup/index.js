@@ -17,7 +17,7 @@ const Signup = (props) => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  const [addUser] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -88,9 +88,6 @@ const Signup = (props) => {
             value={userFormData.username}
             required
           />
-          <Form.Control.Feedback className="feedback" type="invalid">
-            Username is required!
-          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="form-group">
@@ -105,9 +102,6 @@ const Signup = (props) => {
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback className="feedback" type="invalid">
-            Email is required!
-          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="form-group">
@@ -122,9 +116,6 @@ const Signup = (props) => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback className="feedback" type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
         </Form.Group>
         <Button
           disabled={
