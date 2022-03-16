@@ -10,8 +10,6 @@ import {MdOutlineBusinessCenter} from 'react-icons/md';
 
 const Card = ({ data }) => {
 
-    console.log(data.avatar)
-
     if (!data) {
         return <h3>No data here yet!</h3>;
       }
