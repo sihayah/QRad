@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { ADD_CARD } from "../../utils/mutations";
 import { useMutation } from '@apollo/client';
-import Auth from '../../utils/auth';
+import Auth from '../utils/auth';
+import { storage} from '../utils/firebase';
+import { ref , getDownloadURL, uploadString} from 'firebase/storage';
 
 //export and calling function
 export default function EditForm() {
@@ -21,7 +23,9 @@ export default function EditForm() {
     LinkedIn: "",
     Twitter: "",
     Instagram: ""
-    })
+    });
+    const [selectedImg, setSelectedImg] = useState(null);
+    const [img, setImg] = useState(null);
 //form state targets specific event values
   const handlechange = e => {
     const { name, value } = e.target;
@@ -31,18 +35,42 @@ export default function EditForm() {
     });
   }
     console.log(formState)
-
+    const previewImg = (e) => {
+      const reader = new FileReader();
+      if(e.target.files[0]) {
+        reader.readAsDataURL(e.target.files[0]);
+        setImg(e.target.files[0]);
+      }
+      reader.onload = (readerEvent) => {
+        setSelectedImg(readerEvent.target.result);
+      }
+    }
     const handleFormSubmit = async event => {
         event.preventDefault();
         // use try/catch instead of promises to handle errors
+        const uploadImg = ref(storage, `/image/${img.name}`);
         try {
-          const { data } = await addCard({
-            variables: { ...formState }
-          });
-          Auth.login(data.addUser.token);
-        } catch (e) {
-          console.error(e);
+          await uploadString(uploadImg, selectedImg, 'data_url').then(
+            async(snapshot) => {
+              const profileURL = await getDownloadURL(uploadImg);
+              console.log(profileURL);
+              await addCard({
+                variables: {...formState, avatar: profileURL}
+              })
+            }
+          )
+        } catch(err) {
+          console.log(err)
         }
+        
+        // try {
+        //   const { data } = await addCard({
+        //     variables: { ...formState, avatar: profileURL }
+        //   });
+        //   Auth.login(data.addUser.token);
+        // } catch (e) {
+        //   console.error(e);
+        // }
       };
 
     return(
@@ -163,13 +191,12 @@ export default function EditForm() {
             value={formState.Instagram}
         />
        </label>
-        
+        <input type='file' onChange={previewImg}/>
+        { selectedImg ? (
+          <img src={selectedImg} alt="preview"/>
+        ) : ( "")}
             </form>
-        <button
-              onClick={() => {
-                this.setFormState({ editing: true });
-              }}
-            >
+        <button onClick={handleFormSubmit}>
               Save Edit
             </button>
      </div>
