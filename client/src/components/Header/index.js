@@ -14,14 +14,13 @@ const Header = () => {
   return (
     <Router>
       <Navigator></Navigator>
-      <Switch>
-        <div>
-          <Route path="/profile" component={Profile} />
-          <Route path="/contacts" component={Search} />
-          <Route path="/login" component={LoginForm} />
-          <Route path="/signup" component={Signup} />
-        </div>
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/contacts" component={Contacts} /> 
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/signup" component={Signup} />
+        </Switch>
     </Router>
   );
 };
