@@ -32,7 +32,7 @@
   This app allows users to generate a digital business card with a QR code they can share from the profile, and add other business cards to a contact list. 
 
   <br>
-  Deployment: (?)
+  Deployment: https://salty-wave-44811.herokuapp.com/
   <br>
 
   Repo: https://github.com/hpurring/project-3-group-a
