@@ -4,31 +4,35 @@ import React, {useState,} from 'react'
 import Card from '../../components/Card';
 import ContactList from '../../components/Contacts';
 import { useMutation, useQuery } from '@apollo/client';
-import { ADD_CONTACT } from "../../utils/mutations";
+import { ADD_CONTACT } from '../../utils/mutations';
 import { QUERY_ME, QUERY_USERS } from "../../utils/queries";
 
 function Search() {
   
-    const [searchTerm, setSearchTerm] = useState('')
-    const [addContact] = useMutation(ADD_CONTACT);
     let myContacts = [];
-    let myUsername = '';
+    let myUsername = ''; 
+    let allUsers = [];
+    const [searchTerm, setSearchTerm] = useState('');
+
+
+    const [addContact] = useMutation(ADD_CONTACT);
     const { data: myData } = useQuery(QUERY_ME);
     if(myData){
       myContacts = myData.me.contacts;
       myUsername = myData.me.username;
+      console.log(myData)
     }
-    let allUsers = [];
     const {data: userData, loading } = useQuery(QUERY_USERS);
+
     if (userData) {
       allUsers = userData.users; 
     }
-    allUsers.map(user => console.log(user.cards[0]))
 
     const renderContactList = () => {
-      if (!myContacts === 0) {
+      if (myContacts.length > 0) {
+        console.log(myContacts)
         return (
-          <ContactList username ={myUsername} contacts={myContacts}/> 
+          <ContactList username={myUsername} contacts={myContacts} />
         )            
       }      
     }
@@ -37,7 +41,7 @@ function Search() {
       console.log(user._id)
         try {
           await addContact({
-            variables: { id: user._id }
+            variables: { _id: user._id }
           });
         } catch (e) {
           console.log(e)
@@ -48,7 +52,8 @@ function Search() {
         <h4>Loading...</h4>
       )
     }
-    if (allUsers) {
+    if (!loading) {
+      allUsers.map(user => console.log(user.cards[0]))
       return (
         <div className="Search">
           <center>
@@ -62,7 +67,7 @@ function Search() {
           {allUsers.filter(user => {
               if (searchTerm ==="") {
                 return ('') 
-              } else if ((user.cards[0].lastName).toLowerCase().includes(searchTerm.toLowerCase())) {
+              } else if ((user.username).toLowerCase().includes(searchTerm.toLowerCase())) {
                   return user
               } 
           }).map((user)=> {
