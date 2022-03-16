@@ -28,7 +28,7 @@ console.log(myCards.length)
   }
 
   return(
-    <div class="link-container">
+    <div>
         <Link to='/editform'>
           Update my QRad 
         </Link>
