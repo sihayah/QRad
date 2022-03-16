@@ -8,7 +8,7 @@ import {
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
@@ -35,7 +35,7 @@ function App() {
     <div className="site_container">
       <ApolloProvider client={client}>
         <Header />
-        <Footer />
+        {/* <Footer /> */}
       </ApolloProvider>
     </div>
   );
