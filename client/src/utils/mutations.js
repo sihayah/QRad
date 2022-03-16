@@ -28,6 +28,7 @@ export const LOGIN = gql`
 export const ADD_CONTACT = gql`
   mutation addContact($_id: ID!) {
     addContact(_id: $_id) {
+      _id
       username
       email
     }
