@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { ADD_CARD } from "../../utils/mutations";
-import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
-import { storage} from '../utils/firebase';
-import { ref , getDownloadURL, uploadString} from 'firebase/storage';
+import { useMutation } from "@apollo/client";
+// import Auth from "../../utils/auth";
+import { storage } from "../utils/firebase";
+import { ref, getDownloadURL, uploadString } from "firebase/storage";
 
 //export and calling function
 export default function EditForm() {
-
-     const addCard = useMutation(ADD_CARD)
-//targeting formState and then setFormState
-// allows to setup the form for the values so that consologging will work
-   const [formState, setFormState] = useState({
+  const addCard = useMutation(ADD_CARD);
+  //targeting formState and then setFormState
+  // allows to setup the form for the values so that consologging will work
+  const [formState, setFormState] = useState({
     firstname: "",
     lastname: "",
     pronouns: "",
@@ -22,193 +21,181 @@ export default function EditForm() {
     website: "",
     LinkedIn: "",
     Twitter: "",
-    Instagram: ""
-    });
-    const [selectedImg, setSelectedImg] = useState(null);
-    const [img, setImg] = useState(null);
-//form state targets specific event values
-  const handlechange = e => {
+    Instagram: "",
+  });
+  const [selectedImg, setSelectedImg] = useState(null);
+  const [img, setImg] = useState(null);
+  //form state targets specific event values
+  const handlechange = (e) => {
     const { name, value } = e.target;
     setFormState({
       ...formState,
       [name]: value,
     });
-  }
-    console.log(formState)
-    const previewImg = (e) => {
-      const reader = new FileReader();
-      if(e.target.files[0]) {
-        reader.readAsDataURL(e.target.files[0]);
-        setImg(e.target.files[0]);
-      }
-      reader.onload = (readerEvent) => {
-        setSelectedImg(readerEvent.target.result);
-      }
+  };
+  console.log(formState);
+  const previewImg = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+      setImg(e.target.files[0]);
     }
-    const handleFormSubmit = async event => {
-        event.preventDefault();
-        // use try/catch instead of promises to handle errors
-        const uploadImg = ref(storage, `/image/${img.name}`);
-        try {
-          await uploadString(uploadImg, selectedImg, 'data_url').then(
-            async(snapshot) => {
-              const profileURL = await getDownloadURL(uploadImg);
-              console.log(profileURL);
-              await addCard({
-                variables: {...formState, avatar: profileURL}
-              })
-            }
-          )
-        } catch(err) {
-          console.log(err)
+    reader.onload = (readerEvent) => {
+      setSelectedImg(readerEvent.target.result);
+    };
+  };
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    // use try/catch instead of promises to handle errors
+    const uploadImg = ref(storage, `/image/${img.name}`);
+    try {
+      await uploadString(uploadImg, selectedImg, "data_url").then(
+        async (snapshot) => {
+          const profileURL = await getDownloadURL(uploadImg);
+          console.log(profileURL);
+          await addCard({
+            variables: { ...formState, avatar: profileURL },
+          });
         }
-        
-        // try {
-        //   const { data } = await addCard({
-        //     variables: { ...formState, avatar: profileURL }
-        //   });
-        //   Auth.login(data.addUser.token);
-        // } catch (e) {
-        //   console.error(e);
-        // }
-      };
+      );
+    } catch (err) {
+      console.log(err);
+    }
 
-    return(
-        //adding css into the js file instead of using a css file
-        <div id="biz-profile">
-        
-            <p i-right-wrapper className="biz-card">
-                {/* missing picture of the business card */}
-            *business card*
-            </p>
-            {/* form for business card  */}
-            <form onSubmit={handleFormSubmit}>
+    // try {
+    //   const { data } = await addCard({
+    //     variables: { ...formState, avatar: profileURL }
+    //   });
+    //   Auth.login(data.addUser.token);
+    // } catch (e) {
+    //   console.error(e);
+    // }
+  };
+
+  return (
+    //adding css into the js file instead of using a css file
+    <div id="biz-profile">
+      <p i-right-wrapper className="biz-card">
+        {/* missing picture of the business card */}
+        *business card*
+      </p>
+      {/* form for business card  */}
+      <form onSubmit={handleFormSubmit}>
         <label>
           Firstname:
-        <input 
+          <input
             placeholder="firstname"
             onChange={handlechange}
             name="firstname"
             value={formState.firstname}
-        />
+          />
         </label>
         <label>
           Lastname:
-        <input 
+          <input
             placeholder="lastname"
             onChange={handlechange}
             name="lastname"
             value={formState.lastname}
-        />
+          />
         </label>
         <label>
-          Pronouns: 
-        <input 
+          Pronouns:
+          <input
             placeholder="pronouns"
             onChange={handlechange}
             name="pronouns"
             value={formState.pronouns}
-        />
+          />
         </label>
         <label>
-          Title: 
-        <input 
+          Title:
+          <input
             placeholder="title"
             onChange={handlechange}
             name="title"
             value={formState.title}
-        />
+          />
         </label>
         <label>
-          Tagline: 
-        <input 
+          Tagline:
+          <input
             placeholder="tagline"
             onChange={handlechange}
             name="tagline"
             value={formState.tagline}
-        />
+          />
         </label>
         <label>
           Email:
-        <input 
+          <input
             placeholder="email"
             onChange={handlechange}
             name="email"
             value={formState.email}
-        />
+          />
         </label>
         <label>
-          Phone: 
-        <input 
+          Phone:
+          <input
             placeholder="phone"
             onChange={handlechange}
             name="phone"
             value={formState.phone}
-        />
+          />
         </label>
         <label>
           Company:
-        <input 
+          <input
             placeholder="company"
             onChange={handlechange}
             name="company"
             value={formState.company}
-        />
+          />
         </label>
         <label>
-          Website: 
-          <input 
+          Website:
+          <input
             placeholder="website"
             onChange={handlechange}
             name="website"
             value={formState.website}
-        />
+          />
         </label>
         <label>
-          LinkedIn: 
-        <input 
+          LinkedIn:
+          <input
             placeholder="LinkedIn"
             onChange={handlechange}
             name="LinkedIn"
             value={formState.LinkedIn}
-        />
+          />
         </label>
         <label>
-          Twitter: 
-        <input 
+          Twitter:
+          <input
             placeholder="Twitter"
             onChange={handlechange}
             name="Twitter"
             value={formState.Twitter}
-        />
+          />
         </label>
-       <label>
-         Instagram:
-       <input 
+        <label>
+          Instagram:
+          <input
             placeholder="Instagram"
             onChange={handlechange}
             name="Instagram"
             value={formState.Instagram}
-        />
-       </label>
-        <input type='file' onChange={previewImg}/>
-        { selectedImg ? (
-          <img src={selectedImg} alt="preview"/>
-        ) : ( "")}
-            </form>
-        <button onClick={handleFormSubmit}>
-              Save Edit
-            </button>
-     </div>
-    );
+          />
+        </label>
+        <input type="file" onChange={previewImg} />
+        {selectedImg ? <img src={selectedImg} alt="preview" /> : ""}
+      </form>
+      <button onClick={handleFormSubmit}>Save Edit</button>
+    </div>
+  );
 }
-
-
-
-
-
-
-
 
 //all imports for user profile
 // import { Redirect, useParams } from 'react-router-dom';
@@ -222,23 +209,23 @@ export default function EditForm() {
 //for profile  purposes so that username links with userParams
 // const Profile = (props) => {
 //     const { username: userParam } = useParams();
-  
+
 //     const [addFriend] = useMutation(ADD_FRIEND);
 //     const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
 //       variables: { username: userParam },
 //     });
-  
+
 //     const user = data?.me || data?.user || {};
-  
+
 //     // redirect to personal profile page if username is yours
 //     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
 //       return <Redirect to="/profile" />;
 //     }
-  
+
 //     if (loading) {
 //       return <div>Loading...</div>;
 //     }
-  
+
 //     if (!user?.username) {
 //       return (
 //         <h4>
@@ -248,7 +235,8 @@ export default function EditForm() {
 //       );
 //     }
 
-    {/* <div className="flex-row mb-3">
+{
+  /* <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
@@ -274,4 +262,5 @@ export default function EditForm() {
           />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <ThoughtForm />}</div> */}
+      <div className="mb-3">{!userParam && <ThoughtForm />}</div> */
+}
