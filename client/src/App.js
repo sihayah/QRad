@@ -1,8 +1,13 @@
 import React from "react";
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import './index.css';
-import Header from './components/Header';
+import "./index.css";
+import Header from "./components/Header";
 // import Qrcode from './components/Qrcode;
 // import Contacts from './components/Contacts';
 // import Card from './components/Card;
@@ -58,16 +63,14 @@ const client = new ApolloClient({
 // }
 
 function App() {
-
   return (
-    <div className='site_container'> 
+    <div className="site_container">
       <ApolloProvider client={client}>
         <Header></Header>
+        <Home />
       </ApolloProvider>
     </div>
   );
 }
-
-
 
 export default App;

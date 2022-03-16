@@ -1,9 +1,9 @@
 import React from "react";
 // import { Navbar, NavbarBrand, Nav, Container } from "react-bootstrap";
 // import { LinkContainer } from 'react-router-bootstrap'
-import './navigator.css';
-import Auth from '../../utils/auth';
-import { NavLink } from 'react-router-dom';
+import "./navigator.css";
+import Auth from "../../utils/auth";
+import { NavLink } from "react-router-dom";
 
 // function Navigator() {
 //   const logout = event => {
@@ -28,7 +28,7 @@ import { NavLink } from 'react-router-dom';
 //             <LinkContainer to="/contacts" className="navLink">
 //               <Nav.Link>my contacts</Nav.Link>
 //             </LinkContainer>
-            
+
 //             {Auth.loggedIn() ? (
 //             <>
 //             <a href="/" onClick={logout}>
@@ -53,9 +53,8 @@ import { NavLink } from 'react-router-dom';
 // }
 // export default Navigator;
 
-
 function Navigator() {
-  const logout = event => {
+  const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
@@ -65,28 +64,42 @@ function Navigator() {
       <div className="navBar">
         <div className="navContainer">
           <div className="navLinks">
-           <NavLink to='/' id="brand" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>
-                QRad
+            <NavLink
+              to="/"
+              id="brand"
+              className={({ isActive }) => (isActive ? "active" : "inactive")}
+            >
+              QRad
             </NavLink>
-            <NavLink to='/profile' className={({ isActive }) => (isActive ? 'active' : 'inactive')}>
-                my profile
+            <NavLink
+              to="/profile"
+              className={({ isActive }) => (isActive ? "active" : "inactive")}
+            >
+              my profile
             </NavLink>
-            <NavLink to='/contacts' className={({ isActive }) => (isActive ? 'active' : 'inactive')}>
-                my contacts
+            <NavLink
+              to="/contacts"
+              className={({ isActive }) => (isActive ? "active" : "inactive")}
+            >
+              my contacts
             </NavLink>
-            
+
             {Auth.loggedIn() ? (
-            <>
-            <a href="/" onClick={logout}>
-              Log out
-            </a>
-            </>
-          ) : (
-            <>
-              <NavLink to="/login" className="navLink">log in</NavLink>
-              <NavLink to="/signup" className="navLink">sign up</NavLink>           
-            </>
-          )}
+              <>
+                <a href="/" onClick={logout}>
+                  Log out
+                </a>
+              </>
+            ) : (
+              <>
+                <NavLink to="/login" className="navLink">
+                  log in
+                </NavLink>
+                <NavLink to="/signup" className="navLink">
+                  sign up
+                </NavLink>
+              </>
+            )}
           </div>
         </div>
       </div>
