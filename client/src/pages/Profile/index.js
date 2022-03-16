@@ -29,9 +29,11 @@ const Profile = () => {
 
   return (
     <div>
-      <Link to="/editform">Update my QRad</Link>
+      <center>
+      <Link to="/editform" className="qrad-btn">Update my QRad</Link>
       <br />
-      <Link to={`/card/${myId}`}>View my QRad</Link>
+      <Link to={`/card/${myId}`} className="qrad-btn">View my QRad</Link>
+      </center>
     </div>
   );
 };

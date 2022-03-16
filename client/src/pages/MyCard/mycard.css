@@ -1,0 +1,11 @@
+.qr-btn {
+    margin-top: 20px;
+    padding: 10px;
+    font-family: 'Righteous', cursive;
+    color: var(--first-color);
+    background-color: var(--second-color);
+}
+
+.qr-btn:hover {
+    background-color: var(--third-color);
+}

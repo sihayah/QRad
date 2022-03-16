@@ -57,7 +57,7 @@ const LoginForm = () => {
         >
           Something went wrong with your login credentials!
         </Alert>
-        <p class="form-title">Login to your Qrad account</p>
+        <p className="form-title">Login to your Qrad account</p>
         <Form.Group className="form-group">
           <Form.Label className="formLabel" htmlFor="email">
             Email

@@ -1,7 +1,5 @@
 import React from "react";
 import "./home.css";
-import me from "../../MOCK_ME.json";
-import Card from "../../components/Card";
 import Auth from "../../utils/auth";
 import "../../components/Card/style.css";
 import { HiOutlineMailOpen } from "react-icons/hi";
@@ -105,7 +103,6 @@ function Home() {
           </p>
         </div>
       </section>
-      {me && <Card data={me} className="sample-card" />}
     </>
   );
 }

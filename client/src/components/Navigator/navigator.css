@@ -18,7 +18,7 @@
     
 }
 
-.inactive, .navLink {
+.inactive, .navLink, .logout {
     padding: 25px;
     font-family: 'Lato', sans-serif;
     font-weight: lighter;
@@ -35,7 +35,7 @@
     transition: all 0.4s ease 0s;
 }
 
-.navLink:hover, .inactive:hover {
+.navLink:hover, .inactive:hover, .logout:hover {
     color: var(--third-color);
     transition: all 0.4s ease 0s;
     font-size: 25px;

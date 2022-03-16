@@ -72,7 +72,7 @@ const Signup = (props) => {
         >
           Something went wrong with your signup!
         </Alert>
-        <p i-right-wrapper className="form-title">
+        <p className="form-title">
           {/* missing picture of the business card */}
           Sign up with QRad
         </p>
