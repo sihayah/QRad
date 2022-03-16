@@ -13,6 +13,9 @@ const Card = ({ data }) => {
     if (!data) {
         return <h3>No data here yet!</h3>;
       }
+    if (data) {
+        console.log(data)
+    }
     
     return(
         <>
@@ -26,9 +29,9 @@ const Card = ({ data }) => {
                     <p className="tagline">{data.tagline}</p>
                 )} 
             </div>
-            {data.img && (
+            {data.avatar && (
                 <div className='card-img'>
-                    <img alt ={data.usernmae} src={data.img}/>
+                    <img alt ={data.usernmae} src={data.avatar} />
                 </div>
                 )} 
             <ul>

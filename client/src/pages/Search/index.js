@@ -1,87 +1,98 @@
-import "./style.css";
-import json from "./data/MOCK_DATA.json";
-import React, { useState } from "react";
-import Card from "../../components/Contacts";
-import ContactList from "../../components/Card";
-import { useMutation, useQuery } from "@apollo/client";
-import { ADD_CONTACT } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
-import Auth from "../../utils/auth";
 
+// import './style.css';
+import React, {useState,} from 'react'
+import Card from '../../components/Card';
+import ContactList from '../../components/Contacts';
+import { useMutation, useQuery } from '@apollo/client';
+import { ADD_CONTACT } from '../../utils/mutations';
+import { QUERY_ME, QUERY_USERS } from "../../utils/queries";
 
 function Search() {
-  const [searchTerm, setSearchTerm] = useState("");
-  // const [show, setShow] = useState(false)
-  const addContact = useMutation(ADD_CONTACT);
-  const { data } = useQuery(QUERY_ME);
-  let user = {};
+  
+    let myContacts = [];
+    let myUsername = ''; 
+    let allUsers = [];
+    const [searchTerm, setSearchTerm] = useState('');
 
-  // if (Auth.loggedIn()) {
-  //   user = data.me;
-  // }
 
-  const handleClick = async () => {
-    try {
-      await addContact({
-        variables: { id: user._id },
-      });
-    } catch (e) {
-      console.log(e);
+    const [addContact] = useMutation(ADD_CONTACT);
+    const { data: myData } = useQuery(QUERY_ME);
+    if(myData){
+      myContacts = myData.me.contacts;
+      myUsername = myData.me.username;
+      console.log(myData)
     }
-  };
+    const {data: userData, loading } = useQuery(QUERY_USERS);
 
-  return (
-    <>
-      <div className="Search">
-        <center>
-          <input
-            type="text"
-            placeholder="Search Contacts..."
-            onChange={(event) => {
-              setSearchTerm(event.target.value);
-            }}
+    if (userData) {
+      allUsers = userData.users; 
+    }
+
+    const renderContactList = () => {
+      if (myContacts.length > 0) {
+        console.log(myContacts)
+        return (
+          <ContactList username={myUsername} contacts={myContacts} />
+        )            
+      }      
+    }
+
+    const handleClick = async (user) => {
+      console.log(user._id)
+        try {
+          await addContact({
+            variables: { _id: user._id }
+          });
+          myContacts = myData.me.contacts;
+          window.location.assign('/contacts');
+          
+        } catch (e) {
+          console.log(e)
+        }
+      };
+    if (loading) {
+      return (
+        <h4>Loading...</h4>
+      )
+    }
+    if (!loading) {
+      allUsers.map(user => console.log(user.cards[0]))
+      return (
+        <div className="Search">
+          <center>
+          <input type="text" 
+          placeholder="Search Contacts..." 
+          onChange={event => {setSearchTerm(event.target.value);
+          }}
           />
-          <hr />
-
-          {json
-            .filter((val) => {
-              if (searchTerm === "") {
-                return "";
-                // } else if (val.firstName.toLowerCase().includes(searchTerm.toLowerCase())) {
-                //     return val
-              } else if (
-                val.lastName.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
-                return val;
-              }
-
-            })
-            .map((val, key) => {
+          <hr/>
+          
+          {allUsers.filter(user => {
+              if (searchTerm ==="") {
+                return ('') 
+              } else if ((user.username).toLowerCase().includes(searchTerm.toLowerCase())) {
+                  return user
+              } 
+          }).map((user)=> {
               return (
-                <div className="user" key={key}>
-
-                  <Card data={val} />
-                  {/* {              
-                  show?<p><BsFillTelephoneForwardFill/> {val.phone} <p> <IoIosBusiness/> {val.company_name}</p> 
-                  <a href="mailto:"><HiOutlineMailOpen/> {val.email}</a>
-                  <br/>
-                  <a href={val.website} target='_blank'><CgWebsite/> Website</a> 
-                  <br/>
-                  <a href={val.linkedin} target='_blank'><BsLinkedin/> Linkedin</a>
-                  <br/>
-                  <a href={val.instagram} target='_blank'><AiFillInstagram/> Instagram</a></p>:null
-                  } */}
-
-                  <button onClick={handleClick}>Add Contact</button>
-                </div>
+              <div className="user" key={user.username}> 
+                  <Card data= {user.cards[0]}/>
+               
+                {user.username === myUsername ? '': 
+                <button onClick={()=>handleClick(user)}>Add Contact</button>
+                }
+              </div>
               );
-            })}
-        </center>
-      </div>  
-      {/* {user.contacts && <ContactList />}   */}
-    </>
+          })}
+          
+          {renderContactList()}
 
-  );
+
+          </center>
+      </div>
+      );      
+    }
+
 }
 
-export default Search;
+export default Search ;

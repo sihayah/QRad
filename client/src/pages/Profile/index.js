@@ -2,14 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
-import Auth from '../../utils/auth';
-import me from '../../MOCK_ME.json';
 
 const Profile = () => {
+let myId = '';
+let myCards = [];
+const { data } = useQuery(QUERY_ME);
+if (data) { 
+  myId = data.me._id;
+  myCards = data.me.cards
+}
 
-// const { data } = useQuery(QUERY_ME);
+console.log(myCards.length)
 
-  if (!me.cards) {
+
+
+  if (myCards.length === 0) {
       return(
           <>
             <Link to='/editform'>
@@ -21,9 +28,17 @@ const Profile = () => {
   }
 
   return(
-    <Link to='/editform'>
-      Update my QRad 
-    </Link>
+    <div>
+        <Link to='/editform'>
+          Update my QRad 
+        </Link>
+    <br/>
+        <Link to={`/card/${myId}`}>
+          View my QRad
+        </Link>    
+    </div> 
+      
+
   )    
 }
 
