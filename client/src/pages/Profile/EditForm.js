@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { ADD_CARD } from "../utils/mutations";
+import { ADD_CARD } from "../../utils/mutations";
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { storage} from '../utils/firebase';
 import { ref , getDownloadURL, uploadString} from 'firebase/storage';
 
 //export and calling function
-export default function Profile() {
+export default function EditForm() {
 
      const addCard = useMutation(ADD_CARD)
 //targeting formState and then setFormState
