@@ -56,6 +56,7 @@ const cardSchema = new Schema({
   linkedIn: { type: String, required: false, unique: false, trim: true },
   instagram: { type: String, required: false, unique: false, trim: true },
   website: { type: String, required: false, unique: false, trim: true },
+  avatar: { type: String }
 
 });
 

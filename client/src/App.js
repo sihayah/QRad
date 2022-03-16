@@ -2,20 +2,29 @@ import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import './index.css';
-
 import Header from './components/Header';
-
-import Search from './pages/Search';
 // import Qrcode from './components/Qrcode;
-// import Profile from './components/Profile';
 // import Contacts from './components/Contacts';
 // import Card from './components/Card;
-// // import Login from "./components/Login";
-// import Signup from "./components/Signup";
 
+import { setContext } from "@apollo/client/link/context";
+
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
+
+const authLInk = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
 
 const client = new ApolloClient({
-  uri: "/graphql",
+  link: authLInk.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
