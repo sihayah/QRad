@@ -1,50 +1,43 @@
 import React from "react";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./index.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { setContext } from "@apollo/client/link/context";
 
-import Home from './pages/Home';
-import Header from './components/Header';
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
 
-import Search from './pages/Search';
-// import Qrcode from './components/Qrcode;
-// import Profile from './components/Profile';
-// import Contacts from './components/Contacts';
-// import Card from './components/Card;
-// // import Login from "./components/Login";
-// import Signup from "./components/Signup";
-
+const authLInk = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
 
 const client = new ApolloClient({
-  uri: "/graphql",
+  link: authLInk.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-
-        {/* <div className="flex-column justify-flex-start min-100-vh"> */}
-          <Header />
-          <div className="container">
-
-            <Route exact path="/">
-              <Home />
-            </Route>
-
-            <Route exact path="/sign-up">
-              {/* <Signup /> */}
-            </Route>
-
-            {/* <Route exact path="//:thoughtId">
-              <Contacts /> */}
-            {/* </Route> */}
-          </div>
-          {/* <Footer /> */}
-        {/* </div> */}
-
-      </Router>
-    </ApolloProvider>
+    <div className="site_container">
+      <ApolloProvider client={client}>
+        <Header />
+        <Footer />
+      </ApolloProvider>
+    </div>
   );
 }
 
