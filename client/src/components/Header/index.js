@@ -6,13 +6,16 @@ import { Link } from 'react-router-dom';
 function Navigator() {
 
   return (
-          <Link
-            to="/"
-            id="brand"
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            QRad
-          </Link>
+    <header>
+      <Link
+        to="/"
+        id="brand"
+        className={({ isActive }) => (isActive ? "active" : "inactive")}
+      >
+        QRad
+      </Link>
+    </header>
+
   );
 }
 export default Navigator;
