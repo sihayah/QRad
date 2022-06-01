@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
+import '../Profile/style.css';
 
 const Profile = () => {
 let myId = '';
@@ -18,22 +19,22 @@ console.log(myCards.length)
 
   if (myCards.length === 0) {
       return(
-          <>
-            <Link to='/editform'>
+          <div className='link-container'>
+            <Link to='/editform' className='link'>
               Create my QRad 
             </Link>
               
-          </>
+          </div>
       )
   }
 
   return(
-    <div>
-        <Link to='/editform'>
+    <div className='link-container'>
+        <Link to='/editform' className='link'>
           Update my QRad 
         </Link>
-    <br/>
-        <Link to={`/card/${myId}`}>
+    
+        <Link to={`/card/${myId}`} className='link'>
           View my QRad
         </Link>    
     </div> 
