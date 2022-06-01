@@ -1,5 +1,5 @@
 {
-  "name": "project 3",
+  "name": "qrad",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -20,7 +20,6 @@
     "dotenv": "^16.0.0",
     "firebase": "^9.6.8",
     "jsonwebtoken": "^8.5.1",
-    "jwt-decode": "^3.1.2",
-    "react-scripts": "^5.0.1"
+    "jwt-decode": "^3.1.2"
   }
 }
