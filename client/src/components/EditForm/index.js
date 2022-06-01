@@ -68,105 +68,140 @@ export default function EditForm() {
     <div id="biz-profile">
       {/* form for business card  */}
       <form onSubmit={handleFormSubmit}>
-        <label>
-          Firstname:
-          <input
-            placeholder="firstname"
-            onChange={handlechange}
-            name="firstName"
-            value={formState.firstName}
-          />
-        </label>
-        <label>
-          Lastname:
-          <input
-            placeholder="lastname"
-            onChange={handlechange}
-            name="lastName"
-            value={formState.lastName}
-          />
-        </label>
-        <label>
-          Pronouns:
-          <input
-            placeholder="pronouns"
-            onChange={handlechange}
-            name="pronouns"
-            value={formState.pronouns}
-          />
-        </label>
-        <label>
-          Title:
-          <input
-            placeholder="title"
-            onChange={handlechange}
-            name="title"
-            value={formState.title}
-          />
-        </label>
-        <label>
-          Tagline:
-          <input
-            placeholder="tagline"
-            onChange={handlechange}
-            name="tagline"
-            value={formState.tagline}
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            placeholder="email"
-            onChange={handlechange}
-            name="email"
-            value={formState.email}
-          />
-        </label>
-        <label>
-          Phone:
-          <input
-            placeholder="phone"
-            onChange={handlechange}
-            name="phone"
-            value={formState.phone}
-          />
-        </label>
-        <label>
-          Company:
-          <input
-            placeholder="company"
-            onChange={handlechange}
-            name="company"
-            value={formState.company}
-          />
-        </label>
-        <label>
-          Website:
-          <input
-            placeholder="website"
-            onChange={handlechange}
-            name="website"
-            value={formState.website}
-          />
-        </label>
-        <label>
-          LinkedIn:
-          <input
-            placeholder="linkedIn"
-            onChange={handlechange}
-            name="linkedIn"
-            value={formState.LinkedIn}
-          />
-        </label>
-        <label>
-          Instagram:
-          <input
-            placeholder="instagram"
-            onChange={handlechange}
-            name="instagram"
-            value={formState.Instagram}
-          />
-        </label>
+
+        <div classname="input-container">
+          <label>
+              Firstname:
+            </label>          
+              <input
+                placeholder="firstname"
+                onChange={handlechange}
+                name="firstName"
+                value={formState.firstName}
+              />          
+        </div>
+ 
+        <div classname="input-container">
+          <label>
+            Lastname:
+          </label>          
+            <input
+              placeholder="lastname"
+              onChange={handlechange}
+              name="lastName"
+              value={formState.lastName}
+            />          
+        </div>
+
+        <div classname="input-container">
+          <label>
+            Pronouns:
+          </label>          
+            <input
+              placeholder="pronouns"
+              onChange={handlechange}
+              name="pronouns"
+              value={formState.pronouns}
+            />          
+        </div>
+
+        <div classname="input-container">
+          <label>
+            Title:
+          </label>          
+            <input
+              placeholder="title"
+              onChange={handlechange}
+              name="title"
+              value={formState.title}
+            />          
+        </div>
+
+        <div classname="input-container">
+          <label>
+            Tagline:
+          </label>          
+            <input
+              placeholder="tagline"
+              onChange={handlechange}
+              name="tagline"
+              value={formState.tagline}
+            />          
+        </div>
+
+        <div classname="input-container">
+          <label>
+            Email:
+          </label>          
+            <input
+              placeholder="email"
+              onChange={handlechange}
+              name="email"
+              value={formState.email}
+            />          
+        </div>
+
+        <div classname="input-container">
+          <label>
+            Phone:
+          </label>          
+            <input
+              placeholder="phone"
+              onChange={handlechange}
+              name="phone"
+              value={formState.phone}
+            />          
+        </div>
+
+        <div classname="input-container">
+          <label>
+            Company:
+          </label>          
+            <input
+              placeholder="company"
+              onChange={handlechange}
+              name="company"
+              value={formState.company}
+            />          
+        </div>
+
+        <div classname="input-container">
+          <label>
+            Website:
+          </label>          
+            <input
+              placeholder="website"
+              onChange={handlechange}
+              name="website"
+              value={formState.website}
+            />          
+        </div>
+
+        <div classname="input-container">
+          <label>
+            LinkedIn:
+          </label>          
+            <input
+              placeholder="linkedIn"
+              onChange={handlechange}
+              name="linkedIn"
+              value={formState.LinkedIn}
+            />          
+        </div>
+
+        <div classname="input-container">
+          <label>
+            Instagram:
+          </label>          
+            <input
+              placeholder="instagram"
+              onChange={handlechange}
+              name="instagram"
+              value={formState.Instagram}
+            />          
+        </div>
+
+
         <input type="file" onChange={previewImg} />
         {selectedImg ? <img src={selectedImg} name={selectedImg} alt="preview" /> : ""}
       </form>
