@@ -35,7 +35,6 @@ function App() {
     <div className="site_container">
       <ApolloProvider client={client}>
         <Header />
-        <Footer />
       </ApolloProvider>
     </div>
   );
