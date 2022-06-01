@@ -1,25 +1,14 @@
 .navBar {
     background-color: var(--second-color);
     width: 100%;
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, .5);
     margin-bottom: 10px;
 }
 
 .navLinks {
-    width: 100%;
-    margin: 0, 0;
-    padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--second-color)
-    
 }
 
 .inactive, .navLink {
-    padding: 25px;
     font-family: 'Lato', sans-serif;
     font-weight: lighter;
     text-decoration: none;

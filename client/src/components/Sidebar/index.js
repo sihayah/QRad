@@ -1,13 +1,13 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
-import Nav from '../Nav';
+import Navigator from '../Navigator';
 import '../Sidebar/style.css';
 
 const Sidebar = () => {
 
     return (
         <Menu right width={ '50%'}>
-            <Nav />
+            <Navigator />
         </Menu>
     )
 

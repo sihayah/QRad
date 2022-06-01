@@ -3,3 +3,7 @@
     --second-color: #000;
     --third-color: #C64103;
   }
+
+* {
+  background-color: var(--first-color);
+}

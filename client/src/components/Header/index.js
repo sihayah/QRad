@@ -3,7 +3,7 @@ import "../Navigator/navigator.css";
 import "./header.css";
 import { Link } from 'react-router-dom';
 
-function Navigator() {
+function Header() {
 
   return (
     <header>
@@ -18,5 +18,5 @@ function Navigator() {
 
   );
 }
-export default Navigator;
+export default Header;
 

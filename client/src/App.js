@@ -7,6 +7,7 @@ import {
 } from "@apollo/client";
 import "./index.css";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../src/components/Home";
 import LoginForm from "../src/components/Login";
@@ -38,20 +39,22 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <div className="site_container">
+    <div className="App" id="outer-container">
       <ApolloProvider client={client}>
-
         <Router>
-          <Header />        
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/card/:id" component={MyCard} />
-            <Route exact path="/contacts" component={Search} /> 
-            <Route exact path="/login" component={LoginForm} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/editform" component={EditForm} />
-          </Switch>
+          <Sidebar pageWrapId={ 'page-wrap' } outerContainerId={ 'outer-container' }/>
+            <div id="page-wrap">
+              <Header />  
+              <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/card/:id" component={MyCard} />
+              <Route exact path="/contacts" component={Search} /> 
+              <Route exact path="/login" component={LoginForm} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/editform" component={EditForm} />
+            </Switch>            
+          </div>
         </Router>
       </ApolloProvider>
     </div>

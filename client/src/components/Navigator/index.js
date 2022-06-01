@@ -10,19 +10,14 @@ function Navigator() {
   };
 
   return (
-    <div className="navBar">
+    <nav className="navBar">
       <div className="navContainer">
         <div className="navLinks">
-          <Link
-            to="/"
-            id="brand"
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            QRad
-          </Link>
+
           <Link
             to="/profile"
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
+            className=
+            {({ isActive }) => (isActive ? "active" : "inactive")}
           >
             my profile
           </Link>
@@ -51,7 +46,7 @@ function Navigator() {
           )}
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 export default Navigator;

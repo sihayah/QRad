@@ -1,10 +1,9 @@
 .homeContainer {
-    background-color: var(--first-color);
+    text-align: center;
 }
 
 .homeText {
-    width: 50%;
-    margin-left: 25%;
+    width: 100%;
 }
 
 .welcome {
@@ -17,7 +16,13 @@
 .description {
     font-family: "Rato", sans-serif;
     font-weight: lighter;
+    font-style: italic;
     color: var(--second-color);
     font-size: 24px;
     text-align: center;
+    padding: 0 5vh 6vh 5vh;
+}
+
+#profile-link {
+    font-size: 4vh;
 }
