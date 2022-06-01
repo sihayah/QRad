@@ -1,0 +1,11 @@
+form {
+    margin: 7vh 8vh;
+}
+
+.input-container {
+    margin-bottom: 3vh;
+}
+
+.input-container label {
+    padding-right: 1vh;
+}

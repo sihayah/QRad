@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import { storage } from "../../utils/firebase";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
 import {v4 as uuidv4} from 'uuid';
+import '../EditForm/style.css';
 
 //export and calling function
 export default function EditForm() {
@@ -69,7 +70,7 @@ export default function EditForm() {
       {/* form for business card  */}
       <form onSubmit={handleFormSubmit}>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
               Firstname:
             </label>          
@@ -81,7 +82,7 @@ export default function EditForm() {
               />          
         </div>
  
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             Lastname:
           </label>          
@@ -93,7 +94,7 @@ export default function EditForm() {
             />          
         </div>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             Pronouns:
           </label>          
@@ -105,7 +106,7 @@ export default function EditForm() {
             />          
         </div>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             Title:
           </label>          
@@ -117,7 +118,7 @@ export default function EditForm() {
             />          
         </div>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             Tagline:
           </label>          
@@ -129,7 +130,7 @@ export default function EditForm() {
             />          
         </div>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             Email:
           </label>          
@@ -141,7 +142,7 @@ export default function EditForm() {
             />          
         </div>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             Phone:
           </label>          
@@ -153,7 +154,7 @@ export default function EditForm() {
             />          
         </div>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             Company:
           </label>          
@@ -165,7 +166,7 @@ export default function EditForm() {
             />          
         </div>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             Website:
           </label>          
@@ -177,7 +178,7 @@ export default function EditForm() {
             />          
         </div>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             LinkedIn:
           </label>          
@@ -189,7 +190,7 @@ export default function EditForm() {
             />          
         </div>
 
-        <div classname="input-container">
+        <div className="input-container">
           <label>
             Instagram:
           </label>          
@@ -201,11 +202,16 @@ export default function EditForm() {
             />          
         </div>
 
+        <div className="input-container">
+          <input type="file" onChange={previewImg} />
+          {selectedImg ? <img src={selectedImg} name={selectedImg} alt="preview" /> : ""}          
+        </div>
 
-        <input type="file" onChange={previewImg} />
-        {selectedImg ? <img src={selectedImg} name={selectedImg} alt="preview" /> : ""}
+
+        <button onClick={handleFormSubmit}>Save Edit</button>
+
       </form>
-      <button onClick={handleFormSubmit}>Save Edit</button>
+
     </div>
   );
 }
