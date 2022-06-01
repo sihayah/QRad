@@ -1,0 +1,6 @@
+#brand {
+    font-family: 'Righteous', cursive;
+    color: var(--first-color);
+    font-size: 30px;
+    transition: all 0.4s ease 0s;
+}

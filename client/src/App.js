@@ -5,10 +5,16 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "../src/components/Home";
+import LoginForm from "../src/components/Login";
+import Signup from "../src/components/Signup";
+import Search from "../src/pages/Search";
+import Profile from "../src/pages/Profile";
+import MyCard from "../src/pages/MyCard";
+import EditForm from "../src/components/EditForm";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
@@ -34,7 +40,19 @@ function App() {
   return (
     <div className="site_container">
       <ApolloProvider client={client}>
-        <Header />
+
+        <Router>
+          <Header />        
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/card/:id" component={MyCard} />
+            <Route exact path="/contacts" component={Search} /> 
+            <Route exact path="/login" component={LoginForm} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/editform" component={EditForm} />
+          </Switch>
+        </Router>
       </ApolloProvider>
     </div>
   );

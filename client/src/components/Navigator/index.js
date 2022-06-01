@@ -1,7 +1,7 @@
 import React from "react";
 import "./navigator.css";
 import Auth from "../../utils/auth";
-import { NavLink } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function Navigator() {
   const logout = (event) => {
@@ -10,47 +10,45 @@ function Navigator() {
   };
 
   return (
-    <div>
-      <div className="navBar">
-        <div className="navContainer">
-          <div className="navLinks">
-            <NavLink
-              to="/"
-              id="brand"
-              className={({ isActive }) => (isActive ? "active" : "inactive")}
-            >
-              QRad
-            </NavLink>
-            <NavLink
-              to="/profile"
-              className={({ isActive }) => (isActive ? "active" : "inactive")}
-            >
-              my profile
-            </NavLink>
-            <NavLink
-              to="/contacts"
-              className={({ isActive }) => (isActive ? "active" : "inactive")}
-            >
-              my contacts
-            </NavLink>
+    <div className="navBar">
+      <div className="navContainer">
+        <div className="navLinks">
+          <Link
+            to="/"
+            id="brand"
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
+          >
+            QRad
+          </Link>
+          <Link
+            to="/profile"
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
+          >
+            my profile
+          </Link>
+          <Link
+            to="/contacts"
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
+          >
+            my contacts
+          </Link>
 
-            {Auth.loggedIn() ? (
-              <>
-                <a href="/" onClick={logout}>
-                  Log out
-                </a>
-              </>
-            ) : (
-              <>
-                <NavLink to="/login" className="navLink">
-                  log in
-                </NavLink>
-                <NavLink to="/signup" className="navLink">
-                  sign up
-                </NavLink>
-              </>
-            )}
-          </div>
+          {Auth.loggedIn() ? (
+            <>
+              <a href="/" onClick={logout}>
+                Log out
+              </a>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="navLink">
+                log in
+              </Link>
+              <Link to="/signup" className="navLink">
+                sign up
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

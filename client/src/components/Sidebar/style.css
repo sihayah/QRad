@@ -1,0 +1,75 @@
+.bm-menu nav a {
+    text-decoration: none;
+}
+
+.bm-menu nav{
+    flex-direction: column;
+    gap: 13vh;
+    height: 100vh;
+    text-align: right;
+    top: 0;
+    opacity: 90%;
+    padding-right: 2vh;
+  }
+
+.bm-burger-button {
+    position: fixed;
+    width: 4vh;
+    height: 4vh;
+    right: 3vh;
+    top: 4vh;
+  }
+
+  .bm-burger-bars {
+    background: var(--blue-grey);
+  }
+  
+  .bm-burger-bars-hover {
+    background: var(--golden-touch);
+  }
+  
+  .bm-cross-button {
+    height: 4vh;
+    width: 4vh;
+  }
+  
+  .bm-cross {
+    background: var(--golden-touch);
+  }
+  
+  /*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+  }
+  
+  .bm-menu {
+    background: #fff;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    opacity: 95%;
+  }
+  
+  .bm-morph-shape {
+    fill: #fff;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    padding: 2vh;
+  }
+  
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+
+  @media screen and (min-width: 700px) {
+    .bm-burger-bars {
+      display: none;
+    }
+  }
+  

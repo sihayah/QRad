@@ -28,13 +28,6 @@
     font-size: 20px;
 }
 
-#brand {
-    font-family: 'Righteous', cursive;
-    color: var(--first-color);
-    font-size: 30px;
-    transition: all 0.4s ease 0s;
-}
-
 .navLink:hover, .inactive:hover {
     color: var(--third-color);
     transition: all 0.4s ease 0s;
