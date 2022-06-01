@@ -3,28 +3,18 @@ import QRCode from 'react-qr-code';
 import './modal.css';
 
 
-const Modal = ({ setIsOpen }) => {
-    // const { username: userParam } = useParams();
-
-    // const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    //     variables: { username: userParam }
-    //   });
-
-    // console.log({username: userParam})
-
-    // const qrName = {username: userParam}
-
+const Modal = ({ setToOpen }) => {
 
     const url = window.location.href;
 
     return (
         <>
-            <div className='darkBG' onClick={() => setIsOpen(false)} />
+            <div className='darkBG' onClick={() => setToOpen(false)} />
             <div className='centered'>
                 <div>
                 <QRCode value={url}/>
                 </div>
-                <button className='closeBtn' onClick={() => setIsOpen(false)}>
+                <button className='closeBtn' onClick={() => setToOpen(false)}>
                     close
                 </button>
             </div>

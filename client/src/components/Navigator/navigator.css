@@ -20,8 +20,6 @@
 .navLink:hover, .inactive:hover {
     color: var(--third-color);
     transition: all 0.4s ease 0s;
-    font-size: 25px;
-    padding: 20px;
 }
 
 #brand:hover {

@@ -10,10 +10,10 @@
 
 .bm-burger-button {
     position: fixed;
-    width: 4vh;
-    height: 4vh;
-    right: 3vh;
-    top: .5vh;
+    width: 3.5vh;
+    height: 3.5vh;
+    right: 1vh;
+    top: .75vh;
     background-color: #000;
   }
   
