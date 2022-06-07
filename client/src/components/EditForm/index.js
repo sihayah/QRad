@@ -219,7 +219,7 @@ export default function EditForm() {
         </div>
 
 
-        <button onClick={handleFormSubmit}>Save Edit</button>
+        <button className="ombre-btn" onClick={handleFormSubmit}>Save Edit</button>
 
       </form>
 

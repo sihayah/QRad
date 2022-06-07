@@ -12,6 +12,10 @@ button {
   color: var(--third-color);
   border: var(--third-color) 1px solid;
   padding: 1vh;
+  background-color: #fff;
+}
+
+.ombre-btn {
   box-shadow: inset 0px 0px 5px var(--third-color);
   -moz-box-shadow: inset 0px 0px 5px var(--third-color);
   -webkit-box-shadow: inset 0px 0px 5px var(--third-color);
@@ -20,6 +24,9 @@ button {
 button:hover, button:active, button:visited {
   color: #fff;
   background-color: var(--third-color);
+}
+
+.ombre-btn:hover, .ombre-btn:active, ombre-btn:visited {
   box-shadow: inset 0px 0px 5px #fff;
   -moz-box-shadow: inset 0px 0px 5px #fff;
   -webkit-box-shadow: inset 0px 0px 5px #fff;

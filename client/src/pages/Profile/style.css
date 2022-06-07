@@ -1,8 +1,8 @@
-.link {
-    padding: 5vh;
-}
 
 .link-container {
     padding-top: 10vh;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
 }

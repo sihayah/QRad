@@ -79,7 +79,7 @@ function Search() {
                   <Card data= {user.cards[0]}/>
                
                 {user.username === myUsername ? '': 
-                <button onClick={()=>handleClick(user)}>Add Contact</button>
+                <button className="ombre-btn" onClick={()=>handleClick(user)}>Add Contact</button>
                 }
               </div>
               );

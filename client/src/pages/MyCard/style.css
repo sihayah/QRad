@@ -5,3 +5,10 @@
     padding-top: 10vh;
     text-align: center;
 }
+
+@media screen and (min-width: 500px) {
+    button {
+        font-size: 3vh;
+        margin-bottom: 4vh;
+    }
+    }

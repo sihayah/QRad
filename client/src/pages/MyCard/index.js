@@ -21,7 +21,7 @@ const Profile = () => {
   if (data) {
     return(
       <div id='mycard-container'>
-        <button
+        <button className='ombre-btn'
           onClick={() => setToOpen(true)}>
             get my QR code
         </button>
