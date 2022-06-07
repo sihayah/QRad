@@ -7,3 +7,20 @@
 * {
   background-color: var(--first-color);
 }
+
+button {
+  color: var(--third-color);
+  border: var(--third-color) 1px solid;
+  padding: 1vh;
+  box-shadow: inset 0px 0px 5px var(--third-color);
+  -moz-box-shadow: inset 0px 0px 5px var(--third-color);
+  -webkit-box-shadow: inset 0px 0px 5px var(--third-color);
+}
+
+button:hover, button:active, button:visited {
+  color: #fff;
+  background-color: var(--third-color);
+  box-shadow: inset 0px 0px 5px #fff;
+  -moz-box-shadow: inset 0px 0px 5px #fff;
+  -webkit-box-shadow: inset 0px 0px 5px #fff;
+}

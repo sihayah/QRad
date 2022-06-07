@@ -19,8 +19,5 @@
 
 #brand:hover {
     color: var(--third-color);
-    transition: all 0.4s ease 0s;
-    font-size: 36px;
     text-decoration: none;
-    padding: 22px;
 }
