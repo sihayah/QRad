@@ -1,11 +1,67 @@
 form {
+    color: var(--third-color);
     margin: 7vh 8vh;
+    border: 1px solid var(--third-color);
+    padding: 3vh;
+    text-align: center;
+    border-radius: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: inset 0px 0px 5px var(--third-color);
+	-moz-box-shadow: inset 0px 0px 5px var(--third-color);
+	-webkit-box-shadow: inset 0px 0px 5px var(--third-color);
+}
+
+form p {
+    margin-bottom: 3vh;
+    font-style: italic;
 }
 
 .input-container {
     margin-bottom: 3vh;
+    display: flex;
+    gap: 4vh;
 }
 
 .input-container label {
     padding-right: 1vh;
+    width: 10vh;
+}
+
+.input-container input {
+    border: 2px solid var(--third-color);
+}
+
+#file-input {
+  display: none;
+}
+
+#select-img {
+    color: var(--third-color);
+    margin-bottom: 2vh;
+    padding: 1vh;
+    border: 2px solid var(--third-color);
+    width: 25vh;
+}
+
+#camera-icon {
+    margin-left: 2vh;
+}
+
+form button {
+    color: var(--third-color);
+    border: var(--third-color) 1px solid;
+    padding: 1vh;
+    box-shadow: inset 0px 0px 5px var(--third-color);
+	-moz-box-shadow: inset 0px 0px 5px var(--third-color);
+	-webkit-box-shadow: inset 0px 0px 5px var(--third-color);
+}
+
+form button:hover {
+    color: #fff;
+    background-color: var(--third-color);
+    box-shadow: inset 0px 0px 5px #fff;
+	-moz-box-shadow: inset 0px 0px 5px #fff;
+	-webkit-box-shadow: inset 0px 0px 5px #fff;
 }

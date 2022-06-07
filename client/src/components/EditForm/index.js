@@ -6,6 +6,8 @@ import { storage } from "../../utils/firebase";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
 import {v4 as uuidv4} from 'uuid';
 import '../EditForm/style.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
 //export and calling function
 export default function EditForm() {
@@ -69,6 +71,10 @@ export default function EditForm() {
     <div id="biz-profile">
       {/* form for business card  */}
       <form onSubmit={handleFormSubmit}>
+      
+        <p>
+          Enter the info here that you would like displayed on your QRad
+        </p>
 
         <div className="input-container">
           <label>
@@ -202,9 +208,14 @@ export default function EditForm() {
             />          
         </div>
 
-        <div className="input-container">
-          <input type="file" onChange={previewImg} />
-          {selectedImg ? <img src={selectedImg} name={selectedImg} alt="preview" /> : ""}          
+        <div>
+          <label id="select-img">
+            Select Image
+            <FontAwesomeIcon id='camera-icon' icon={ faCamera } />
+              <input id="file-input" type="file" onChange={previewImg} />
+            {selectedImg ? <img src={selectedImg} name={selectedImg} alt="preview" /> : ""}              
+          </label>
+      
         </div>
 
 
