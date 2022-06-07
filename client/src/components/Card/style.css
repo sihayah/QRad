@@ -43,5 +43,21 @@ img {
 }
 
 .card li {
-    max-width: 60vh;
+    max-width: 30vh;
+    word-wrap: break-word;
 }
+
+.card-icon {
+    padding-right: 1vh;
+    font-size: 5vh;
+    transform: translateY(1vh);
+}
+
+@media screen and (min-width: 500px) {
+  .card {
+      width: 60%;
+  }
+  .card li {
+      max-width: 50vh;
+  }
+  }

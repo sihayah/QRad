@@ -4,6 +4,7 @@ import { QUERY_USER } from '../../utils/queries';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Modal from '../../components/Modal';
+import '../MyCard/style.css';
 
 const Profile = () => {
   const [isOpen, setToOpen] = useState(false);
@@ -19,14 +20,14 @@ const Profile = () => {
   }
   if (data) {
     return(
-      <>
-        <button id="qrad-btn"
+      <div id='mycard-container'>
+        <button
           onClick={() => setToOpen(true)}>
-            get QRad
+            get my QR code
         </button>
         {isOpen && <Modal setToOpen={setToOpen} />}
           <Card data={data.user.cards[0]} />
-      </>
+      </div>
     )      
   }
 

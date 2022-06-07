@@ -37,40 +37,40 @@ const Card = ({ data }) => {
             <ul>
                 {data.company && (
                     <li>
-                        <IoIosBusiness /> 
+                        <IoIosBusiness className='card-icon' /> 
                         {data.company}
                     </li>
                 )}
                 {data.title && (
                     <li>
-                        <MdOutlineBusinessCenter />
+                        <MdOutlineBusinessCenter className='card-icon' />
                         {data.title}
                     </li>
                 )}
                 <li>
-                    <HiOutlineMailOpen /> {data.email}
+                    <HiOutlineMailOpen className='card-icon' /> {data.email}
                 </li>
                 {data.phone && (
                     <li>
-                        <BsFillTelephoneForwardFill /> 
+                        <BsFillTelephoneForwardFill className='card-icon' /> 
                         {data.phone}
                     </li>
                 )}
                 {data.website && (
                     <li>
-                        <CgWebsite />
+                        <CgWebsite className='card-icon' />
                         <a href={data.website}> {data.website}</a>
                     </li>
                 )}
                 {data.linkedIn && (
                     <li>
-                        <AiOutlineLinkedin /> 
+                        <AiOutlineLinkedin className='card-icon' /> 
                         {data.linkedIn}
                     </li>
                 )}
                 {data.instagram && (
                     <li>
-                        <AiFillInstagram />  
+                        <AiFillInstagram className='card-icon' />  
                         {data.instagram}
                     </li>
                 )}
