@@ -1,10 +1,13 @@
 header {
     width: 100%;
     background-color: var(--second-color);
+    position: fixed;
+    top: 0;
+    height: 5vh;
 }
 #brand {
     font-family: 'Righteous', cursive;
     color: var(--first-color);
     font-size: 30px;
-    transition: all 0.4s ease 0s;
+    padding-left: 1vh;
 }
