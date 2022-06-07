@@ -1,23 +1,18 @@
-.navBar {
-    background-color: var(--second-color);
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.navLinks {
+#loggedin-link-container, #loggedout-link-container{
     display: flex;
+    flex-direction: column;
+    gap: 5vh;
 }
 
-.inactive, .navLink {
+.inactive, .nav-link {
     font-family: 'Lato', sans-serif;
     font-weight: lighter;
     text-decoration: none;
-    color: var(--first-color);
-    transition: all 0.4s ease 0s;
+    color: var(--third-color);
     font-size: 20px;
 }
 
-.navLink:hover, .inactive:hover {
+.nav-link:hover, .inactive:hover {
     color: var(--third-color);
     transition: all 0.4s ease 0s;
 }

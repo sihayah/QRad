@@ -10,42 +10,36 @@ function Navigator() {
   };
 
   return (
-    <nav className="navBar">
-      <div className="navContainer">
-        <div className="navLinks">
-
-          <Link
-            to="/profile"
-            className=
-            {({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            my profile
-          </Link>
-          <Link
-            to="/contacts"
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            my contacts
-          </Link>
-
+    <nav>
           {Auth.loggedIn() ? (
-            <>
-              <a href="/" onClick={logout}>
+            <div id="loggedin-link-container">
+              <Link
+                to="/profile"
+                className=
+                {({ isActive }) => (isActive ? "active" : "inactive")}
+                >
+                Profile
+              </Link>
+              <Link
+                to="/contacts"
+                className={({ isActive }) => (isActive ? "active" : "inactive")}
+              >
+                Contacts
+              </Link>
+              <a href="/" className="nav-link" onClick={logout}>
                 Log out
               </a>
-            </>
+            </div>
           ) : (
-            <>
-              <Link to="/login" className="navLink">
+            <div id="loggedout-link-container">
+              <Link to="/login" className="nav-link">
                 log in
               </Link>
-              <Link to="/signup" className="navLink">
+              <Link to="/signup" className="nav-link">
                 sign up
               </Link>
-            </>
+            </div>
           )}
-        </div>
-      </div>
     </nav>
   );
 }
