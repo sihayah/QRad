@@ -6,6 +6,7 @@ import ContactList from '../../components/Contacts';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_CONTACT } from '../../utils/mutations';
 import { QUERY_ME, QUERY_USERS } from "../../utils/queries";
+import '../Search/style.css';
 
 function Search() {
   
@@ -52,20 +53,19 @@ function Search() {
       };
     if (loading) {
       return (
-        <h4>Loading...</h4>
+        <h4 id='loading'>Loading...</h4>
       )
     }
     if (!loading) {
       allUsers.map(user => console.log(user.cards[0]))
       return (
-        <div className="Search">
+        <div id="search-container">
           <center>
-          <input type="text" 
+          <input id="search-input" type="text" 
           placeholder="Search Contacts..." 
           onChange={event => {setSearchTerm(event.target.value);
           }}
           />
-          <hr/>
           
           {allUsers.filter(user => {
               if (searchTerm ==="") {
