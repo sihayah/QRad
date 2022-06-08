@@ -12,7 +12,7 @@ button, button:hover {
 }
 
 .inactive, .navLink {
-  color: hotpink;
+  color: var(--third-color);
 }
 
 .bm-burger-button {

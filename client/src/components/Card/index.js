@@ -65,13 +65,13 @@ const Card = ({ data }) => {
                 {data.linkedIn && (
                     <li>
                         <AiOutlineLinkedin className='card-icon' /> 
-                        {data.linkedIn}
+                        <a href={data.linkedIn}> {data.linkedIn}</a>
                     </li>
                 )}
                 {data.instagram && (
                     <li>
                         <AiFillInstagram className='card-icon' />  
-                        {data.instagram}
+                        <a href={data.instagram}> {data.instagram} </a>
                     </li>
                 )}
             </ul>            
