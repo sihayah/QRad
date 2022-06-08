@@ -21,7 +21,7 @@
 
   <br>
 
-   <img width='30%' src= './client/public/qrad-landing.png'> 
+   <img width='50%' src= './client/public/qrad-landing.png'> 
   
   <br>
 
@@ -32,7 +32,7 @@
   This app allows users to generate a digital business card with a QR code they can share from the profile, and add other business cards to a contact list. 
 
   <br>
-  Deployment: https://salty-wave-44811.herokuapp.com/
+  Deployment: https://qrad.herokuapp.com/
   <br>
 
   Repo: https://github.com/hpurring/project-3-group-a
