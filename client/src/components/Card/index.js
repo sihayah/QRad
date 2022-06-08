@@ -7,6 +7,8 @@ import {CgWebsite} from 'react-icons/cg';
 import {AiFillInstagram} from 'react-icons/ai';
 import {AiOutlineLinkedin} from 'react-icons/ai';
 import {MdOutlineBusinessCenter} from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import MailTo from '../MailTo';
 
 const Card = ({ data }) => {
 
@@ -48,7 +50,10 @@ const Card = ({ data }) => {
                     </li>
                 )}
                 <li>
-                    <HiOutlineMailOpen className='card-icon' /> {data.email}
+                    <HiOutlineMailOpen className='card-icon' />
+                    <Link to={{ pathname: data.email }} target="_blank"> {data.eamil} 
+                            </Link>
+                        
                 </li>
                 {data.phone && (
                     <li>
@@ -59,19 +64,25 @@ const Card = ({ data }) => {
                 {data.website && (
                     <li>
                         <CgWebsite className='card-icon' />
-                        <a href={data.website}> {data.website}</a>
+                        <Link to={{ pathname: data.website }} target="_blank"> {data.website} 
+                            </Link>
+    
                     </li>
                 )}
                 {data.linkedIn && (
                     <li>
                         <AiOutlineLinkedin className='card-icon' /> 
-                        <a href={data.linkedIn}> {data.linkedIn}</a>
+                        <Link to={{ pathname: "http://wwww.linkedin.com/"+data.linkedIn }} target="_blank"> {data.linkedIn} 
+                            </Link>
+
                     </li>
                 )}
                 {data.instagram && (
                     <li>
-                        <AiFillInstagram className='card-icon' />  
-                        <a href={data.instagram}> {data.instagram} </a>
+                    
+                            <AiFillInstagram className='card-icon' /> 
+                            <Link to={{ pathname: "http://wwww.instagram.com/"+data.instagram }} target="_blank"> {data.instagram} 
+                            </Link>
                     </li>
                 )}
             </ul>            

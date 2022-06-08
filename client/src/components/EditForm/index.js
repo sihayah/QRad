@@ -187,9 +187,14 @@ export default function EditForm() {
         <div className="input-container">
           <label>
             LinkedIn:
+            <br />
+            <div className="example-text">
+              <span className="grey-out">example: www.linkedin.com/in/</span>
+              <span className="key-text">delilah-dean </span>              
+            </div>
           </label>          
             <input
-              placeholder="linkedIn"
+              placeholder="linkedIn handle"
               onChange={handlechange}
               name="linkedIn"
               value={formState.LinkedIn}
@@ -198,10 +203,16 @@ export default function EditForm() {
 
         <div className="input-container">
           <label>
-            Instagram:
+            Instagram handle:
+            <br />
+            <div className="example-test">
+              <span className="grey-out">example: www.instagram.com/</span>
+              <span className="key-text"> deedee </span>              
+            </div>
+
           </label>          
             <input
-              placeholder="instagram"
+              placeholder="instagram handle"
               onChange={handlechange}
               name="instagram"
               value={formState.Instagram}

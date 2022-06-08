@@ -26,11 +26,24 @@ form p {
 
 .input-container label {
     padding-right: 1vh;
-    width: 10vh;
+    width: 17vh;
 }
 
 .input-container input {
     border: 2px solid var(--third-color);
+}
+
+.key-text {
+    font-style: bold;
+    text-decoration: underline;
+}
+
+.example-text {
+    word-wrap: break-word;
+}
+
+.grey-out {
+    opacity: 25%;
 }
 
 #file-input {

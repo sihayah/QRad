@@ -5,13 +5,15 @@ button, button:hover {
   -webkit-box-shadow: none;
 } 
 
-.navLinks {
+nav {
   flex-direction: column;
   gap: 3vh;
   height: 100%;
+  padding-top: 10vh;
+  text-align: center;
 }
 
-.inactive, .navLink {
+.inactive, .nav-link {
   color: var(--third-color);
 }
 
@@ -50,7 +52,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: var(--first-color);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
-  opacity: 95%;
 }
 
 .bm-morph-shape {
@@ -66,10 +67,4 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-item {
   display: inline-block;
 }
-
-  @media screen and (min-width: 700px) {
-    /* .bm-burger-bars {
-      display: none;
-    } */
-  }
   
