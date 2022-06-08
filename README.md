@@ -21,7 +21,7 @@
 
   <br>
 
-   <img width='50%' src= './client/public/qrad_landing.png'> 
+   <img width='30%' src= './client/public/qrad-landing.png'> 
   
   <br>
 
