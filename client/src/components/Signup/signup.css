@@ -15,3 +15,11 @@
 .feedback {
     padding-left: 15px;
 }
+
+.form button {
+    background-color: #fff;
+}
+
+.form button:hover {
+    background-color: var(--third-color);
+}
