@@ -12,10 +12,10 @@
 
 
   [Description](#description) *
+  [Prerequisites](*prerequisites)*
   [Installation](#installation) *
   [Usage](#usage) *
   [Contributions](#contributions) *
-  [Tests](#tests) *
   [Questions](#questions) *
   [License](#license)
 
@@ -32,24 +32,49 @@
   This app allows users to generate a digital business card with a QR code they can share from the profile, and add other business cards to a contact list. 
 
   <br>
-  Deployment: https://qrad.herokuapp.com/
+  Live: https://qrad.herokuapp.com/
   <br>
 
   Repo: https://github.com/hpurring/project-3-group-a
+
+  <br>
+
+  ## Prerequisites
+
+  Make sure you have the following installed on your development machine:
+
+  Git - [Download & Install Git](https://git-scm.com/downloads)
+  <br>
+  Node.js - [Download & Install Node.js](https://nodejs.org/en/download/)
+  <br>
+  Visual Studio Code - [Download & Install VS Code](https://code.visualstudio.com/download)
+  <br>
 
   
 
   ## Installation
 
-  
-  
-  Download repo locally and run npm install from integrated terminal.
+  Clone the repo locally. Open of the repo in VS Code. Run npm install to install all dependencies via the command line...
+
+    npm install
 
   <br>
 
 ## Usage
 
-Navigate to the deployment page, and sign up to create a user account. Once sign-in, click 'Create a QRad', and input your data. Next you can click 'View my QRad' from your profile to see the QRad business card that you've generated. You can navigate to the Contact page in the header to search users, and click 'add contact' to add them to your contact list.
+  To demo this app navigate to https://qrad.herokuapp.com/.
+
+  To view locally, run npm start in the command line. 
+
+    npm run develop
+
+  If it's running the following response should occur in your command line...
+
+   <img src= 'code-snippet.png'> 
+
+  Navigate to http://localhost:3000/.
+
+From the homepage, sign up to create a user account. Once sign-in, click 'Create a QRad', and input your data. Next you can click 'View my QRad' from your profile to see the QRad business card that you've generated. You can navigate to the Contact page in the header to search users, and click 'add contact' to add them to your contact list.
 
   
 
