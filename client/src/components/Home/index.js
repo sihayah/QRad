@@ -21,7 +21,7 @@ function Home() {
                         </Link>    
                     ) : (
                         <Link to='/signup'>
-                        Click here to get started    
+                        Get started    
                         </Link>  
                     )}
                     
