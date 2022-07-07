@@ -10,32 +10,58 @@
 
   
 
-
-  [Description](#description) *
-  [Prerequisites](*prerequisites)*
+  [User Story](#userstory) *
+  [Features](#features) *
+  [Technologies](#technologies) *
+  [Prerequisites](*prerequisites) *
   [Installation](#installation) *
-  [Usage](#usage) *
+  [User Experience](#UserExperience) *
   [Contributions](#contributions) *
   [Questions](#questions) *
   [License](#license)
 
   <br>
 
-   <img width='50%' src= './client/public/qrad-landing.png'> 
+   <img width=20% src= './client/public/qrad-landing.png'> 
+
+  <br>
+  Live: https://qrad.herokuapp.com/
+  <br>
+  Repo: https://github.com/hpurring/project-3-group-a
   
   <br>
 
-  ## Description
+  ## UserStory
+
+  <br>
+
+As a professional networking with others in my field, I want to offer access to my business card via QR code so that I can trade my information with other individuals and store their contact information in one searchable and secure application.
+
+  <br>
+
+  ## Features
 
   <br>
 
   This app allows users to generate a digital business card with a QR code they can share from the profile, and add other business cards to a contact list. 
 
   <br>
-  Live: https://qrad.herokuapp.com/
-  <br>
 
-  Repo: https://github.com/hpurring/project-3-group-a
+  ## Technologies
+
+  Following technologies were used in the production of this app:
+
+  * HTML5
+  * CSS3
+  * JavaScript
+  * Bootstrap
+  * Node.js
+  * NPMs
+  * Heroku
+  * React
+  * MongoDB
+  * GraphQL
+
 
   <br>
 
@@ -54,27 +80,72 @@
 
   ## Installation
 
-  Clone the repo locally. Open of the repo in VS Code. Run npm install to install all dependencies via the command line...
+  To demo this app in a browser navigate to https://qrad.herokuapp.com/.
+
+  To run this app locally, clone the repo. In a command line interface, navigate to the root of the repo. Run npm install to install all dependencies via the command line:
 
     npm install
 
-  <br>
-
-## Usage
-
-  To demo this app navigate to https://qrad.herokuapp.com/.
-
-  To view locally, run npm start in the command line. 
+Once sucessfully installed run following command:
 
     npm run develop
 
-  If it's running the following response should occur in your command line...
+  If it's running correctly the following response should occur in your command line...
 
-   <img src= 'code-snippet.png'> 
+   <img src= './client/public/code-snippet.png'> 
 
-  Navigate to http://localhost:3000/.
+  You may then navigate to http://localhost:3000/ in your web browser.
 
-From the homepage, sign up to create a user account. Once sign-in, click 'Create a QRad', and input your data. Next you can click 'View my QRad' from your profile to see the QRad business card that you've generated. You can navigate to the Contact page in the header to search users, and click 'add contact' to add them to your contact list.
+  <br>
+
+## UserExperience
+
+From the homepage, select the text link "get started". 
+<img src= './client/public/ui1.png'> 
+<br>
+Once at the sign-up page, enter the required data to create a user.
+<br>
+<img src= './client/public/ui2.png' width=50%>
+<br>
+Once signed-in, select 'Create my QRad' from the profile page.
+<br>
+<img src= './client/public/ui3.png' width=50%> 
+<br>
+Enter all of the necessary form data that will go into the business card. If desired, select a photo to upload.
+<br>
+<img src= './client/public/ui4.png'> 
+<br>
+Select Save Edit
+<br>
+<img src= './client/public/ui5.png' width=50%>   
+<br>
+After being automatically redirected to the profile page, you can choose to view the business card that's been created.
+<br>
+<img src= './client/public/ui6.png' width=50%>
+<br>
+On the page with the your business card, you can choose to get the QR code linking to this page.
+<br>
+<img src= './client/public/ui7.png'> 
+<br>
+The QR opens up in a modal.
+<br>
+<img src= './client/public/ui8.png'> 
+<br>
+From the sidebar you can navigate to the other sections of the site, such as the contacts page.
+<br>
+<img src= './client/public/ui9.png'> 
+<br>
+From here you can search by name to find other QR users.
+<br>
+<img src= './client/public/ui10.png' width=50%> 
+<br>
+Having found a user you wish to add to your contacts, you may select the add contact button below their card.
+<br>
+<img src= './client/public/ui11.png'>
+<br>
+The contacts will automatically populate on your contact list.
+<br>
+<img src= './client/public/ui12.png'> 
 
   
 
@@ -82,7 +153,6 @@ From the homepage, sign up to create a user account. Once sign-in, click 'Create
 
   ## Contributions
 
-  
 
   Create a pull request to compare to the develop branch.
 
