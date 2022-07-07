@@ -107,7 +107,7 @@ Once at the sign-up page, enter the required data to create a user.
 <br>
 <img src= './client/public/ui2.png' width=50%>
 <br>
-Once signed-in, select 'Create my QRad' from the profile page.
+Now signed-in, select 'Create my QRad' from the profile page.
 <br>
 <img src= './client/public/ui3.png' width=50%> 
 <br>
