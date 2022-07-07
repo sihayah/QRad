@@ -113,7 +113,7 @@ Now signed-in, select 'Create my QRad' from the profile page.
 <br>
 Enter all of the necessary form data that will go into the business card. If desired, select a photo to upload.
 <br>
-<img src= './client/public/ui4.png'> 
+<img src= './client/public/ui4.png' width=50%> 
 <br>
 Select Save Edit
 <br>
@@ -125,15 +125,15 @@ After being automatically redirected to the profile page, you can choose to view
 <br>
 On the page with the your business card, you can choose to get the QR code linking to this page.
 <br>
-<img src= './client/public/ui7.png'> 
+<img src= './client/public/ui7.png' width=50%> 
 <br>
 The QR opens up in a modal.
 <br>
-<img src= './client/public/ui8.png'> 
+<img src= './client/public/ui8.png' width=50%> 
 <br>
 From the sidebar you can navigate to the other sections of the site, such as the contacts page.
 <br>
-<img src= './client/public/ui9.png'> 
+<img src= './client/public/ui9.png' width=50%> 
 <br>
 From here you can search by name to find other QR users.
 <br>
@@ -141,11 +141,11 @@ From here you can search by name to find other QR users.
 <br>
 Having found a user you wish to add to your contacts, you may select the add contact button below their card.
 <br>
-<img src= './client/public/ui11.png'>
+<img src= './client/public/ui11.png' width=50%>
 <br>
 The contacts will automatically populate on your contact list.
 <br>
-<img src= './client/public/ui12.png'> 
+<img src= './client/public/ui12.png' width=50%> 
 
   
 
