@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ADD_CARD } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
-import { idbPromise } from "../../utils/helpers";
-// import Auth from "../../utils/auth";
 import { storage } from "../../utils/firebase";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
 import {v4 as uuidv4} from 'uuid';
