@@ -11,6 +11,7 @@ const { data } = useQuery(QUERY_ME);
 if (data) { 
   myId = data.me._id;
   myCards = data.me.cards
+  console.log(myCards[0])
 }
 
 console.log(myCards.length)

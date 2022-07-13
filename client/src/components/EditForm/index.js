@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ADD_CARD } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
-import { useQuery, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { idbPromise } from "../../utils/helpers";
 // import Auth from "../../utils/auth";
 import { storage } from "../../utils/firebase";
@@ -13,20 +12,7 @@ import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
 //export and calling function
 export default function EditForm() {
-  const [addCard] = useMutation(ADD_CARD);
-  const { data } = useQuery(QUERY_ME);
-  let myCard;
-  let myCardId;
-  const loadMe = async (event) => {
-    await console.log(data.me.cards[0]);
-    myCard = data.me.cards[0];
-    myCardId = data.me.cards[0]._id;
-    console.log(myCard);
-    console.log(myCardId);
-  }
-  if (data) {
-    loadMe();
-  }
+
   //targeting formState and then setFormState
   // allows to setup the form for the values so that consologging will work
   const [formState, setFormState] = useState({
@@ -42,6 +28,9 @@ export default function EditForm() {
     linkedIn: "",
     instagram: "",
   });
+
+  const [addCard] = useMutation(ADD_CARD);
+
   const [selectedImg, setSelectedImg] = useState(null);
 
   //form state targets specific event values
