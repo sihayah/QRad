@@ -69,6 +69,7 @@ export const QUERY_ME = gql`
         }
       }
       cards {
+        _id
         firstName
         lastName
         pronouns
