@@ -8,7 +8,6 @@ import {AiFillInstagram} from 'react-icons/ai';
 import {AiOutlineLinkedin} from 'react-icons/ai';
 import {MdOutlineBusinessCenter} from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import MailTo from '../MailTo';
 
 const Card = ({ data }) => {
 
