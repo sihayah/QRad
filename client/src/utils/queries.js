@@ -7,6 +7,7 @@ export const QUERY_USERS = gql`
       _id
       email
       cards {
+        _id
         firstName
         lastName
         pronouns
@@ -69,6 +70,7 @@ export const QUERY_ME = gql`
         }
       }
       cards {
+        _id
         firstName
         lastName
         pronouns
