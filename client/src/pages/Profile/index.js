@@ -14,12 +14,6 @@ if (data) {
   console.log(data.me.cards[0])
 }
 
-if (myCards.length > 0) {
-  console.log("I have a card")
-}
-
-
-
   if (myCards.length === 0) {
       return(
           <div className='link-container'>
