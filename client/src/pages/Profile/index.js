@@ -11,10 +11,12 @@ const { data } = useQuery(QUERY_ME);
 if (data) { 
   myId = data.me._id;
   myCards = data.me.cards
-  console.log(myCards[0])
+  console.log(data.me.cards[0])
 }
 
-console.log(myCards.length)
+if (myCards.length > 0) {
+  console.log("I have a card")
+}
 
 
 
