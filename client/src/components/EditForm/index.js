@@ -62,7 +62,7 @@ export default function EditForm() {
           await addCard({
             variables: { ...formState, avatar: profileURL },
           });
-          window.location.assign('/profile');
+          window.location.assign('/updatecard');
         }
       );
     } catch (err) {

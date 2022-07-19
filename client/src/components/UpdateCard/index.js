@@ -15,11 +15,15 @@ const UpdateCard = () => {
     console.log(firstName) 
     }
 
-    idbPromise('cards', 'get');
-    
+    const relocate = async () => {
+        await idbPromise('cards', 'get');
+        window.location.assign('/profile')
+    }
+
+    relocate();
 
     return (
-        <h2>woooo</h2>
+        <h3>Updating your business card...</h3>
     )
 };
 

@@ -1,4 +1,4 @@
 h2 {
     margin-top: 10vh;
-    color: lime;
+    color: var(--third-color);
 }
