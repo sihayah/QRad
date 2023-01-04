@@ -16,7 +16,6 @@ import Search from "../src/pages/Search";
 import Profile from "../src/pages/Profile";
 import MyCard from "../src/pages/MyCard";
 import EditForm from "../src/components/EditForm";
-import UpdateCard from "./components/UpdateCard";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
@@ -54,7 +53,6 @@ function App() {
               <Route exact path="/login" component={LoginForm} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/editform" component={EditForm} />
-              <Route exact path="/updatecard" component={UpdateCard} />
             </Switch>            
           </div>
         </Router>

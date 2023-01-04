@@ -72,7 +72,7 @@ function Search() {
                 return ('') 
               } else if ((user.username).toLowerCase().includes(searchTerm.toLowerCase())) {
                   return user
-              } 
+              } return true
           }).map((user)=> {
               return (
               <div className="user" key={user.username}> 
