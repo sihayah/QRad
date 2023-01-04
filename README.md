@@ -25,7 +25,7 @@
    <img width=20% src= './client/public/qrad-landing.png'> 
 
   <br>
-  Live: https://qrad.herokuapp.com/
+  Live: https://qrad-v2.herokuapp.com/
   <br>
   Repo: https://github.com/hpurring/project-3-group-a
   
