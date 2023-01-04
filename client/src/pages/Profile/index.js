@@ -16,10 +16,7 @@ const Profile = () => {
     console.log(currentCard);
 
     await idbPromise('cards', 'put', currentCard);
-    idbPromise('cards', 'get');
   }
-
-  
   
   if (data) { 
     myId = data.me._id;
